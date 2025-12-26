@@ -34,3 +34,4 @@ mnemonic*
 # Deployment scripts with secrets
 deploy-contract.js
 mint-script.js
+.vercel

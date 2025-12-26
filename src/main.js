@@ -1,23 +1,16 @@
-// NFT Mint App - Uses Stacks wallet extensions for connection
-// Stacks transactions built manually with @stacks/transactions
-
-import {
-  deserializeCV,
-  cvToValue
-} from '@stacks/transactions';
+// NFT Mint App - Uses @stacks/connect for wallet connection
+import { showConnect, openContractCall } from '@stacks/connect';
+import { deserializeCV, cvToValue } from '@stacks/transactions';
 import { STACKS_MAINNET, STACKS_TESTNET } from '@stacks/network';
 
 // Configuration
 const CONFIG = {
-  // NFT Contract - UPDATE THIS after deployment
   CONTRACT_ADDRESS: 'SP31G2FZ5JN87BATZMP4ZRYE5F7WZQDNEXJ7G7X97',
   CONTRACT_NAME: 'simple-nft-v2',
-  
-  // Network
-  NETWORK: 'mainnet', // 'mainnet' or 'testnet'
-  
-  // Mint price in microSTX
-  MINT_PRICE: 1000 // 0.001 STX
+  NETWORK: 'mainnet',
+  MINT_PRICE: 1000,
+  APP_NAME: 'Simple NFT',
+  APP_ICON: window.location.origin + '/icon.png'
 };
 
 // DOM Elements
@@ -33,13 +26,7 @@ const elements = {
 };
 
 // State
-let provider = null;
 let userAddress = null;
-
-// Get network object
-function getNetwork() {
-  return CONFIG.NETWORK === 'mainnet' ? STACKS_MAINNET : STACKS_TESTNET;
-}
 
 // Show status message
 function showStatus(message, type = 'info') {
@@ -65,97 +52,34 @@ function updateUI() {
   }
 }
 
-// Detect available Stacks wallet
-function detectWallet() {
-  // Check for Leather wallet (new name)
-  if (window.LeatherProvider) {
-    return { name: 'Leather', provider: window.LeatherProvider };
-  }
+// Connect wallet using @stacks/connect
+function connectWallet() {
+  showStatus('Opening wallet...', 'info');
   
-  // Check for StacksProvider (generic, used by multiple wallets)
-  if (window.StacksProvider) {
-    return { name: 'Stacks Wallet', provider: window.StacksProvider };
-  }
-  
-  // Check for Xverse
-  if (window.XverseProviders?.StacksProvider) {
-    return { name: 'Xverse', provider: window.XverseProviders.StacksProvider };
-  }
-  
-  // Check for Hiro Wallet (legacy)
-  if (window.HiroWalletProvider) {
-    return { name: 'Hiro Wallet', provider: window.HiroWalletProvider };
-  }
-  
-  return null;
-}
-
-// Connect wallet
-async function connectWallet() {
-  showStatus('Detecting wallet...', 'info');
-  
-  const wallet = detectWallet();
-  
-  if (!wallet) {
-    showStatus('No Stacks wallet detected. Please install Leather or Xverse wallet.', 'error');
-    elements.status.innerHTML = 'No Stacks wallet detected. Install <a href="https://leather.io" target="_blank">Leather</a> or <a href="https://www.xverse.app" target="_blank">Xverse</a>';
-    return;
-  }
-  
-  showStatus(`Connecting to ${wallet.name}...`, 'info');
-  
-  try {
-    provider = wallet.provider;
-    
-    // Request connection / get addresses
-    let response;
-    try {
-      response = await provider.request({ method: 'stx_getAddresses' });
-    } catch (e) {
-      // Some wallets use getAddresses without stx_ prefix
-      response = await provider.request({ method: 'getAddresses' });
-    }
-    
-    console.log('Wallet response:', response);
-    
-    // Handle different response formats
-    let address = null;
-    
-    if (response?.result?.addresses) {
-      // Leather format
-      const stxAddress = response.result.addresses.find(a => a.type === 'stacks' || a.symbol === 'STX');
-      address = stxAddress?.address;
-    } else if (response?.addresses) {
-      // Standard format
-      address = response.addresses[0]?.address;
-    } else if (Array.isArray(response)) {
-      // Array format
-      address = response[0]?.address || response[0];
-    } else if (typeof response === 'string') {
-      address = response;
-    }
-    
-    if (!address) {
-      throw new Error('Could not get address from wallet');
-    }
-    
-    userAddress = address;
-    updateUI();
-    showStatus(`Connected to ${wallet.name}!`, 'success');
-    setTimeout(hideStatus, 2000);
-    fetchMintedCount();
-    
-  } catch (error) {
-    console.error('Connection error:', error);
-    const errorMsg = error?.message || error?.toString() || 'User rejected or unknown error';
-    showStatus(`Connection failed: ${errorMsg}`, 'error');
-  }
+  showConnect({
+    appDetails: {
+      name: CONFIG.APP_NAME,
+      icon: CONFIG.APP_ICON,
+    },
+    onFinish: (data) => {
+      console.log('Connect response:', data);
+      userAddress = data.userSession.loadUserData().profile.stxAddress.mainnet;
+      updateUI();
+      showStatus('Connected!', 'success');
+      setTimeout(hideStatus, 2000);
+      fetchMintedCount();
+    },
+    onCancel: () => {
+      showStatus('Connection cancelled', 'error');
+    },
+    userSession: undefined,
+  });
 }
 
 // Disconnect wallet
 function disconnectWallet() {
   userAddress = null;
-  provider = null;
+  localStorage.removeItem('blockstack-session');
   updateUI();
   hideStatus();
 }
@@ -192,34 +116,28 @@ async function fetchMintedCount() {
 }
 
 // Mint NFT
-async function mintNFT() {
-  if (!userAddress || !provider) {
+function mintNFT() {
+  if (!userAddress) {
     showStatus('Please connect your wallet first', 'error');
     return;
   }
   
   elements.mintBtn.disabled = true;
-  showStatus('Please approve the transaction in your wallet...', 'info');
+  showStatus('Opening wallet for approval...', 'info');
   
-  try {
-    // Request contract call through wallet
-    const response = await provider.request({
-      method: 'stx_callContract',
-      params: {
-        contract: `${CONFIG.CONTRACT_ADDRESS}.${CONFIG.CONTRACT_NAME}`,
-        functionName: 'mint',
-        functionArgs: [],
-        network: CONFIG.NETWORK,
-        postConditionMode: 'allow'
-      }
-    });
-    
-    console.log('Mint response:', response);
-    
-    // Handle different response formats
-    const txId = response?.result?.txId || response?.txId || response?.result;
-    
-    if (txId) {
+  openContractCall({
+    contractAddress: CONFIG.CONTRACT_ADDRESS,
+    contractName: CONFIG.CONTRACT_NAME,
+    functionName: 'mint',
+    functionArgs: [],
+    network: CONFIG.NETWORK === 'mainnet' ? STACKS_MAINNET : STACKS_TESTNET,
+    appDetails: {
+      name: CONFIG.APP_NAME,
+      icon: CONFIG.APP_ICON,
+    },
+    onFinish: (data) => {
+      console.log('Mint response:', data);
+      const txId = data.txId;
       const explorerUrl = CONFIG.NETWORK === 'mainnet'
         ? `https://explorer.hiro.so/txid/${txId}`
         : `https://explorer.hiro.so/txid/${txId}?chain=testnet`;
@@ -227,19 +145,15 @@ async function mintNFT() {
       elements.status.className = 'status success';
       elements.status.innerHTML = `NFT minted! <a href="${explorerUrl}" target="_blank">View on Explorer</a>`;
       elements.status.classList.remove('hidden');
+      elements.mintBtn.disabled = false;
       
-      // Refresh minted count after a delay
       setTimeout(fetchMintedCount, 10000);
-    } else {
-      showStatus('Transaction submitted', 'success');
-    }
-  } catch (error) {
-    console.error('Mint failed:', error);
-    const errorMsg = error?.message || error?.toString() || 'Transaction rejected or failed';
-    showStatus(`Mint failed: ${errorMsg}`, 'error');
-  } finally {
-    elements.mintBtn.disabled = false;
-  }
+    },
+    onCancel: () => {
+      showStatus('Transaction cancelled', 'error');
+      elements.mintBtn.disabled = false;
+    },
+  });
 }
 
 // Event listeners
@@ -251,9 +165,17 @@ elements.disconnectBtn.addEventListener('click', disconnectWallet);
 document.addEventListener('DOMContentLoaded', () => {
   fetchMintedCount();
   
-  // Check if wallet is already connected (some wallets persist connection)
-  const wallet = detectWallet();
-  if (wallet) {
-    console.log(`${wallet.name} wallet detected`);
+  // Check for existing session
+  const session = localStorage.getItem('blockstack-session');
+  if (session) {
+    try {
+      const data = JSON.parse(session);
+      if (data.userData?.profile?.stxAddress?.mainnet) {
+        userAddress = data.userData.profile.stxAddress.mainnet;
+        updateUI();
+      }
+    } catch (e) {
+      console.log('No valid session found');
+    }
   }
 });
