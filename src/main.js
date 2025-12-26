@@ -1,5 +1,5 @@
 // NFT Mint App - Uses @stacks/connect for wallet connection
-import { showConnect, openContractCall } from '@stacks/connect';
+import { AppConfig, UserSession, showConnect, openContractCall } from '@stacks/connect';
 import { deserializeCV, cvToValue } from '@stacks/transactions';
 import { STACKS_MAINNET, STACKS_TESTNET } from '@stacks/network';
 
@@ -10,8 +10,12 @@ const CONFIG = {
   NETWORK: 'mainnet',
   MINT_PRICE: 1000,
   APP_NAME: 'Simple NFT',
-  APP_ICON: window.location.origin + '/icon.png'
+  APP_ICON: 'https://snfish.vercel.app/icon.png'
 };
+
+// Initialize Stacks Connect
+const appConfig = new AppConfig(['store_write', 'publish_data']);
+const userSession = new UserSession({ appConfig });
 
 // DOM Elements
 const elements = {
@@ -61,9 +65,12 @@ function connectWallet() {
       name: CONFIG.APP_NAME,
       icon: CONFIG.APP_ICON,
     },
-    onFinish: (data) => {
-      console.log('Connect response:', data);
-      userAddress = data.userSession.loadUserData().profile.stxAddress.mainnet;
+    redirectTo: '/',
+    onFinish: () => {
+      hideStatus();
+      const userData = userSession.loadUserData();
+      console.log('User data:', userData);
+      userAddress = userData.profile.stxAddress.mainnet;
       updateUI();
       showStatus('Connected!', 'success');
       setTimeout(hideStatus, 2000);
@@ -71,15 +78,16 @@ function connectWallet() {
     },
     onCancel: () => {
       showStatus('Connection cancelled', 'error');
+      setTimeout(hideStatus, 3000);
     },
-    userSession: undefined,
+    userSession,
   });
 }
 
 // Disconnect wallet
 function disconnectWallet() {
+  userSession.signUserOut('/');
   userAddress = null;
-  localStorage.removeItem('blockstack-session');
   updateUI();
   hideStatus();
 }
@@ -152,7 +160,9 @@ function mintNFT() {
     onCancel: () => {
       showStatus('Transaction cancelled', 'error');
       elements.mintBtn.disabled = false;
+      setTimeout(hideStatus, 3000);
     },
+    userSession,
   });
 }
 
@@ -166,16 +176,17 @@ document.addEventListener('DOMContentLoaded', () => {
   fetchMintedCount();
   
   // Check for existing session
-  const session = localStorage.getItem('blockstack-session');
-  if (session) {
-    try {
-      const data = JSON.parse(session);
-      if (data.userData?.profile?.stxAddress?.mainnet) {
-        userAddress = data.userData.profile.stxAddress.mainnet;
-        updateUI();
-      }
-    } catch (e) {
-      console.log('No valid session found');
-    }
+  if (userSession.isUserSignedIn()) {
+    const userData = userSession.loadUserData();
+    userAddress = userData.profile.stxAddress.mainnet;
+    updateUI();
+  }
+  
+  // Handle redirect from wallet
+  if (userSession.isSignInPending()) {
+    userSession.handlePendingSignIn().then((userData) => {
+      userAddress = userData.profile.stxAddress.mainnet;
+      updateUI();
+    });
   }
 });
