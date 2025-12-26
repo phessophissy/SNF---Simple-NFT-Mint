@@ -1,24 +1,14 @@
 # Dependencies
 node_modules/
-.pnp
-.pnp.js
 
-# Build outputs
-dist/
-build/
-
-# Environment files (SENSITIVE)
+# Environment files (contain secrets)
 .env
 .env.local
 .env.*.local
-*.env
 
-# Wallet/Key files (SENSITIVE)
-wallets.json
-*.key
-*.pem
-private*.txt
-mnemonic*.txt
+# Build output
+dist/
+build/
 
 # IDE
 .vscode/
@@ -34,9 +24,13 @@ Thumbs.db
 *.log
 npm-debug.log*
 
-# Cache
-.cache/
-.parcel-cache/
+# Private keys and wallets (NEVER commit these)
+wallets.json
+*.key
+*.pem
+private-key*
+mnemonic*
 
-# Testing
-coverage/
+# Deployment scripts with secrets
+deploy-contract.js
+mint-script.js
