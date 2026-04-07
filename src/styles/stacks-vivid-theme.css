@@ -1031,3 +1031,4 @@ h1 {
 .glass-card { background: var(--surface-strong); backdrop-filter: var(--glass-blur); border: 1px solid var(--line); }
 
 .btn-primary:hover { transform: scale(1.05); box-shadow: var(--accent-glow); }
+/* Continuous refinement 15 */ .hero-grid { gap: 18px; }
