@@ -1026,3 +1026,5 @@ h1 {
 ::-webkit-scrollbar-thumb { background: linear-gradient(var(--accent-1), var(--accent-2)); border-radius: 5px; }
 
 .neon-text { color: var(--accent-1); text-shadow: var(--accent-glow); }
+
+.glass-card { background: var(--surface-strong); backdrop-filter: var(--glass-blur); border: 1px solid var(--line); }
