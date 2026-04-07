@@ -45,3 +45,14 @@ deploy-marketplace.js
 # Transfer results
 transfer-results-*.json
 multi-wallet-marketplace-report-*.json
+
+# Wallet reports and sensitive JSON files
+generated-wallets.json
+failed-listing-wallets-*.json
+funding-report-*.json
+mint-100-report-*.json
+multi-wallet-mint-report-*.json
+
+# Frontend build artifacts
+frontend/dist/
+frontend/.vercel/
