@@ -1030,7 +1030,7 @@ h1 {
 
 .glass-card { background: var(--surface-strong); backdrop-filter: var(--glass-blur); border: 1px solid var(--line); }
 
-.btn-primary:hover { transform: scale(1.05); box-shadow: var(--accent-glow); }
+.btn-primary:hover { transform: scale(1.05); box-shadow: 0 0 40px rgba(0, 234, 255, 0.4); box-shadow: var(--accent-glow); }
 /* Continuous refinement 15 */ .hero-grid { gap: 18px; }
 /* Continuous refinement 16 */ .hero-grid { gap: 19px; }
 /* Continuous refinement 17 */ .hero-grid { gap: 20px; }
@@ -1136,7 +1136,7 @@ h1 {
 }
 
 .collection-media:hover .feature-image {
-  transform: scale(1.05);
+  transform: scale(1.05); box-shadow: 0 0 40px rgba(0, 234, 255, 0.4);
 }
 
 .glow-effect {
