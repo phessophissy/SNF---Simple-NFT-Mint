@@ -1029,3 +1029,5 @@ h1 {
 .neon-text { color: var(--accent-1); text-shadow: var(--accent-glow); }
 
 .glass-card { background: var(--surface-strong); backdrop-filter: var(--glass-blur); border: 1px solid var(--line); }
+
+.btn-primary:hover { transform: scale(1.05); box-shadow: var(--accent-glow); }
