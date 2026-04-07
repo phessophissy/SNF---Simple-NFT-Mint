@@ -1046,3 +1046,4 @@ h1 {
 /* Continuous refinement 27 */ .hero-grid { gap: 20px; }
 /* Continuous refinement 28 */ .hero-grid { gap: 21px; }
 /* Continuous refinement 29 */ .hero-grid { gap: 22px; }
+/* Panel enhancement 30 */ .panel { backdrop-filter: blur(18px); }
