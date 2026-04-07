@@ -1,0 +1,577 @@
+{
+  "network": "mainnet",
+  "contract": "SP31G2FZ5JN87BATZMP4ZRYE5F7WZQDNEXJ7G7X97.simple-nft-v4",
+  "walletFile": "/home/thee1/SNF---Simple-NFT-Mint/generated-wallets.json",
+  "selectedWallets": 100,
+  "mintsPerWallet": 1,
+  "successCount": 87,
+  "failCount": 13,
+  "createdAt": "2026-04-06T13:41:26.715Z",
+  "results": [
+    {
+      "address": "SP2SR6TYFZKQGFG8KFQ9Y1X19C76S501C7CV3PGJA",
+      "success": true,
+      "txid": "5c93d7bf0cd457bdb188b6a2da24c5cc67e7b89b4908cae0f09db2cd0152e2a8"
+    },
+    {
+      "address": "SP3QH1M6E73ZNDRA3J2CP2CCZZNNHD1Y8DAQHPFYB",
+      "success": true,
+      "txid": "c832523bccecde2bb2c4a6833db6a0ec33a7e89260f36c64678114a0c1a99e12"
+    },
+    {
+      "address": "SP3P4J55QE0NJCAXAC75NRBA6WJ1WRBSF5G1T26GD",
+      "success": true,
+      "txid": "cbdf8bc3cbb1c7e8cd8284c64fda95dc4c4652f81fcb3439b7dbb5806e1a483b"
+    },
+    {
+      "address": "SP25SGTGQ5WA44K5TFPE04YQ2SVD8Y2ZDPK25APTV",
+      "success": true,
+      "txid": "10053b2da91b03cffac93fb84e38a633146ac0d2812f0548c08319a1b561bb81"
+    },
+    {
+      "address": "SPJDG05KPM0B77MSTB53ZMZTCE24NPGRJP5E0BGE",
+      "success": true,
+      "txid": "581df9128696e7f495b494be295ecbafe5da2ed8acf7cbe7cb351f5d7f29debe"
+    },
+    {
+      "address": "SP2J5BJPCZCHAF1N0KT19TSE08NWW6Y6WKSSRD4EZ",
+      "success": true,
+      "txid": "0c6233adb56a7a1692ee4addb46657fcdb5e1a54dbff0bdd406764060a8d77f8"
+    },
+    {
+      "address": "SPM2HBYTMD63PA06W7BB8MJ0XBFXDV4HJE4YEW5W",
+      "success": true,
+      "txid": "dddb29e48f37299579c45843c1e1f0713afb42d0bc650f5f3ca8063d369340c8"
+    },
+    {
+      "address": "SP36773GWK79CPXADG80JM2K861QV6BSGK0M6AT14",
+      "success": true,
+      "txid": "bb04cfc468621b97efd25d7bcdbd75dd81e9c16bb1858b21b62769ec9365aa16"
+    },
+    {
+      "address": "SP1YG94BNK5BPD6TZGZ2R6C6WVRAVQCV0F2DAEQ4E",
+      "success": true,
+      "txid": "4774808e5b186f21b96b59f4f49ca48319d282e1fdcf0e39371c9b99ab2693e5"
+    },
+    {
+      "address": "SP27SANMXBZR3XNF5YJ9JFX5QJJ8X99Q2GP98SDYZ",
+      "success": true,
+      "txid": "aed79d9ed114b174b2cd85efed31ab73e73595fa8af34b4c3514f2c8ad9840f6"
+    },
+    {
+      "address": "SP1WSDYWR2783QKM924SP0E3FZJZZAWAZRM2A64M2",
+      "success": true,
+      "txid": "0e2d1329d15c9a5e728c64ccb0c777a5b319dd0dd5859a7a404a5a9d4f8a2fbc"
+    },
+    {
+      "address": "SPTD3FBFYR0ADTCDWMV1S27JRFA7866SMWXNA5HS",
+      "success": true,
+      "txid": "ba2f270b7c00f2ece59adf11e87b4f475bf00494586ad7c4a4e59c58588189d4"
+    },
+    {
+      "address": "SP3XECXH2RY2S9H0GV3SHTH2RQZAJVQJFJ8NHJBNT",
+      "success": true,
+      "txid": "4730b76704d6ed2523da1c46005656793c7d2baaeff8118ca611e2ea642f5970"
+    },
+    {
+      "address": "SP31CA4F5N78ZHKTMD68KHC8BG2G6V8V6TTB458FF",
+      "success": true,
+      "txid": "9ea330f95744c46969b293fec66fc5ce10d76f99f4e1333917c6893b6621d8af"
+    },
+    {
+      "address": "SP2K4747A2HXJWSBSR7ADZ27FAPF0NRT3AC5C6WN3",
+      "success": true,
+      "txid": "1b479574a6b94586aaa54684019516e569e6aeb1ed2fbe942feaa8e175e9e8c9"
+    },
+    {
+      "address": "SP1QQKH1ZD21R1C12PED61Q0TXSHD1RZS1BQ4WT33",
+      "success": true,
+      "txid": "ed2b274c754c4ef52c23c605af6497ef17f97d20b31d8a532e4f08b3531f94fa"
+    },
+    {
+      "address": "SPRYA67X40ABZ1XF2KY1366DGP6ZPT48DPQ3YHJF",
+      "success": true,
+      "txid": "b7e25feb5c2046faf6e54b2530051f91584f17ef8fb98126555939b02d1b2723"
+    },
+    {
+      "address": "SP3AT4JHTPQ66MJQGFWQH6WH2BPX1GY637Q610GWF",
+      "success": true,
+      "txid": "5be4e748d90274d7f0ccdd71d6d04018092ad4b49b62b2b36de2ee9e0b7cc058"
+    },
+    {
+      "address": "SPREGSAHB07VNK4M3HC2NDWD0ZA26YWV2HRNQV88",
+      "success": true,
+      "txid": "65785e46905bd1683ef013a41c66e6186d9fb8b345b1c7657c7fde00cb1a63e6"
+    },
+    {
+      "address": "SP3HBMZS91MSQ24DNY23NDCQR91DKTG0GDPHTT1RY",
+      "success": true,
+      "txid": "2b09ebb0979fffab0e5c244cd4858798b8d8e6e0b9a50be9393d6391ad165aca"
+    },
+    {
+      "address": "SPK77RHP0GVFE7DR1H1GWERX10P6D1MX84T3KSQK",
+      "success": true,
+      "txid": "7c05a847f3c1abf276f14951f70b77a728550e547e314421c9d7a572ffd33e84"
+    },
+    {
+      "address": "SP2JT3CENNM3GNR3MSD4W2HMNKXNR53PDQA1PNZZT",
+      "success": true,
+      "txid": "765c35e332132f3b896d6b309781c68709acd5abf96c05bbf988b28fdd8dfb6c"
+    },
+    {
+      "address": "SP1G55XJ4PVFWYJVVSJXMX4D9ZZQCJ5NV6150NV9Z",
+      "success": true,
+      "txid": "362c50223f4f3f10dc04ab342db4f51e5fc310bc18122557422a23fc1740e1f7"
+    },
+    {
+      "address": "SP35C01KDQ28HMEWCE47B56QHX3AW3925WTGXDQH",
+      "success": true,
+      "txid": "72b9a4b93841474324be55c6ea6220cfb06bc0231569dbd29758e6f9874f8e46"
+    },
+    {
+      "address": "SP2XGY37Y31KFVDP4R600MHVTHB9K19ZMN4B3FSNZ",
+      "success": true,
+      "txid": "16c3348c219102a89c2ace09796da30233958743368d4860ed00d75992bb1b45"
+    },
+    {
+      "address": "SPK1ZRM00JM15C6EPCMFAB6YG8EXXDMXJA4JT0J1",
+      "success": true,
+      "txid": "3e6ac28774d8b2fc3fc02f67e0cc0553830f1238d60fe3ed35e92bed43eb3f03"
+    },
+    {
+      "address": "SP34WX471SWN2XTN539W2S790V61TPS3V74JP1W7",
+      "success": true,
+      "txid": "26847638fa35df327cf93dea495da046393963bbd45121aed597e6f3f11ad425"
+    },
+    {
+      "address": "SPTYF7E3VTDG5QQHD7Z463B9HB1PVXSM904DADSC",
+      "success": true,
+      "txid": "d51988250169c5f7dab3c29fe936201aa7a59ec225c9c88c6a5a02dfa5083505"
+    },
+    {
+      "address": "SP1HE23ZMK5B2BCBYT81KFKEM71HEADYEN8SZZ2WE",
+      "success": true,
+      "txid": "3da5d6228fde6b801984913f7c1b45d4478a12331df8276afa33bacb07dd5930"
+    },
+    {
+      "address": "SP3HEQG5BR8EN5X5C3W79H0E6ETEFER9V9486FZMP",
+      "success": true,
+      "txid": "3b93b31eb4a58d6bf78a4807b7d002b7cd46c3fd6f6ca94e15798a548147ce38"
+    },
+    {
+      "address": "SP1JTXP20YQPP41WXY8V310A49DABBKV7VKJZYP7H",
+      "success": true,
+      "txid": "beca7e234a8317060016970264f8b7e1ecf7bcfa1dcb4b420eaa9a8c979963c9"
+    },
+    {
+      "address": "SP16VX5S20NY2EY9H0N423AH6TX2CE8JJCXSJPX3V",
+      "success": true,
+      "txid": "1d166ea9781d6a53f320bbe5f1f99134a5ea2ef9da96953f1d6854cdd70ec8a5"
+    },
+    {
+      "address": "SPDKV42G1VT0BC74W2XQDPHV1DWTEWHJFCYJ580M",
+      "success": true,
+      "txid": "2156a5660d745cc28b3ab310f5d5b642754c1e013b5922a5860d9602915778e3"
+    },
+    {
+      "address": "SP2MZ4YS8RCKGNMY754H5XV07NKFNMA2E61S38VJE",
+      "success": true,
+      "txid": "881de7cfa5f5f62db5e8b6b4afbb74b696f33cb839e4de12159a0f8ca5e90cc5"
+    },
+    {
+      "address": "SP1B1R5SKJVFRXBBY3391EJF43ZP17DEM6VMA5S4B",
+      "success": true,
+      "txid": "d1b0a2e33b9eb30e7d55c224fedff33320d3bb231d7faf93fd2b744a35350e16"
+    },
+    {
+      "address": "SPPFTRHRGTN42MNJFKE3KH7QCWT4YNYYZCKPJT3W",
+      "success": true,
+      "txid": "2a3271463c25196584043d0fdc4a190980a8e328b725e243f08a724cbb46c9eb"
+    },
+    {
+      "address": "SP6G2M7VP7WDKSYE6W3SPSMREX0FTHGMN3YAM2NJ",
+      "success": true,
+      "txid": "b939831b6a4878c8ec776f05567b57a18764a3cbe0c9fd28e052ba4f3e53ddf5"
+    },
+    {
+      "address": "SP1174DJKT08E56QNEJFSWH0AVDGPF30JEWHB98N3",
+      "success": true,
+      "txid": "c14d187835de7126dbc3f5c8f2e26f7afd4e7da4584d732014141cbbd30d406e"
+    },
+    {
+      "address": "SPPZGS80Y675RY0RPF1YHJRM8NDJ93E2DQ4Z6BT6",
+      "success": true,
+      "txid": "d69a2ef5624ccef0d44a89bd37bae1982e67257cda93bc8ea5ca098d4bda82f2"
+    },
+    {
+      "address": "SP3RS7QJ1PV6GAWR8DW93MW4SN2ZAFM2689JTHD7C",
+      "success": true,
+      "txid": "a371d6f1013798b46cf8c87da68c86daa8e0c0e4b71c52724d295c0bbb00536d"
+    },
+    {
+      "address": "SP3ERG63JZEY42MPAVWM7KN1KX4V9X6R2EYFZ6B84",
+      "success": true,
+      "txid": "878eff1ab0d6277579b386a04c76c4e38c99ba30a1557bfdc45b067037bcb732"
+    },
+    {
+      "address": "SP1H4C27X822DGQYXTV90NMG4CH5HXQ3WSZHVXGJ3",
+      "success": true,
+      "txid": "d0bd4e2b7cf1afc4a6557ca0e30b851893e2c166ad7028c99c7aec1d07f4f257"
+    },
+    {
+      "address": "SP3QNA7J5VXYN370BFVMY4RHHKTWR946805SAR0JT",
+      "success": true,
+      "txid": "34c3b20de648edb5e35be8c989e675fa46f9aedc371a9fab9e6ac91d489f3c6d"
+    },
+    {
+      "address": "SP3Z98EQAXHM18RGWPXNBRKPX2S8S39QJX080A0D1",
+      "success": true,
+      "txid": "df5c2ddb40c8fd9d7d22cf02903f06fb39724701dfc4ea805d166a177efeaa92"
+    },
+    {
+      "address": "SP2E8E4CWM7916G0JHM80M41DWDCMP4NW0BARXMDH",
+      "success": true,
+      "txid": "e11efc76376384123b98d4cde1276f31078e50a389b2022e9f26a353d78a1e9f"
+    },
+    {
+      "address": "SP195K32S95YWTSW20PGHAKQM5R4BQ586FV36GRNR",
+      "success": true,
+      "txid": "7b1ba64c7a0e51b403fda740f9252e8c42d39b3bf8fe39ec0fb4d4171ff29942"
+    },
+    {
+      "address": "SPM29B02ZCQ6M3BN510S9SSKJ2TWMB959XFVW7FP",
+      "success": true,
+      "txid": "caf7f28742e8cdf5fa32f530a7e1428f0c2248f626902997598107ed8b6dc658"
+    },
+    {
+      "address": "SP19085S28GAS0A5ZK5AFCV3QNF1C0QAYTXARKPGE",
+      "success": true,
+      "txid": "3424e8f0238ef03a1eeedab08df7ee550d5d628406525f88824f7a2eb5878a89"
+    },
+    {
+      "address": "SP1WXMNTDNC38TT6WBY3B8FDGV0SDMF08AKZTR0Y8",
+      "success": true,
+      "txid": "1f27357d83e150ee21f86df0dc6d4553f60c5aec0c3d7f2709d2f430ca5b6bfb"
+    },
+    {
+      "address": "SP113QJRXAX37FQZW3JXJ03KPMWTEA41V7QVP4V2E",
+      "success": true,
+      "txid": "16876b049027349a8a3d45282535578114d5a2b2f1330df124dc2c96615ff140"
+    },
+    {
+      "address": "SP3V6HYK7XXSJ2FZRH6EMYKWK8GW6K1AD9FKRHCEX",
+      "success": true,
+      "txid": "5ff88189bedf0b7a4423d30184677a2af29395f32c284a0a717beb9c8a93a5b1"
+    },
+    {
+      "address": "SP3D7FE8SGWP79HJBK528AJY33YW70QR8MMEKYQ83",
+      "success": true,
+      "txid": "d7866fb703f71602eecc8e6f167638796c1f81cdc5e09950ed2e154286d6a7bd"
+    },
+    {
+      "address": "SP1RRJC969XFRQTGFXHBZ60D68NW6NMPWYRXF9XKJ",
+      "success": true,
+      "txid": "38111af284522708d5c0fe41289018ff6526cb18bba644d0eddcd00e3b518810"
+    },
+    {
+      "address": "SP3VCK5BRG6KPFP3DP33R9TZJCPC691P06TVRDTK6",
+      "success": true,
+      "txid": "e1dd8ade67b9ee22caa3c9b71164ddecd7835aabaffc8ca391745e4dc5371771"
+    },
+    {
+      "address": "SP2865F65H5RMMM98F9HGQMSFV7QA17BPNDH8HSHV",
+      "success": true,
+      "txid": "efd0a57344f1fc0260cce00632c27a54113687891abbc4d0d02e8ef8d7e96f2c"
+    },
+    {
+      "address": "SP3JQTTERPCZPNV59N2NYMZ3S07348EAV7KJWYMFZ",
+      "success": true,
+      "txid": "c66be458b22dfa105705fa5dfbc95f911da73c74d4cc29409eafaad5298252b5"
+    },
+    {
+      "address": "SPKZA8VXSE6P7QX7FHF63YSJG4QQQFJV5E322AN4",
+      "success": true,
+      "txid": "932307b96b12543d8bc00a34f9b700ee70ddd5bed8364a60a502c0f9b9316a27"
+    },
+    {
+      "address": "SP3709J5PVTZM2N5RDJK1Q06C9WMD082V0Z4HRXGM",
+      "success": true,
+      "txid": "75a3f88d2266a5563e1a9b4d3d01edd3851f4a52d699c46db0453dee0fead2a0"
+    },
+    {
+      "address": "SPMZEDQW11DNGMTMQZSEQ3YV9W5QVCPF33WGECDA",
+      "success": true,
+      "txid": "1bd11421270b36d77674d43bbc6733071d5cebb171ec0621a2dc3d6a3d38f92f"
+    },
+    {
+      "address": "SP3H9429Z7CSNDNYN0NNYV5S9B55W761MPGVHP43K",
+      "success": true,
+      "txid": "e91e07d51bf1a7adf80bc85c5187bff6d83aebe505b22eec586d3fab2e81d65a"
+    },
+    {
+      "address": "SP3QDYK0ZYMVB5ZNVAE8PXJA58BSHQTWNPGYFTDTZ",
+      "success": true,
+      "txid": "3b1626162d95bb62a8bb1d4e4929d9d5f5ac6a48d81f9f26dc8865aa8c77dbcc"
+    },
+    {
+      "address": "SP1FB7A194ZKFBSGN5KCYC5AH8THJK8FC6EPHPAB7",
+      "success": true,
+      "txid": "3a6d9408aef84637ecbffe4b80d4bd300bfeabe34e1aee639ac9443e84706f5c"
+    },
+    {
+      "address": "SP269CVX5FEC7KF6R9AGGH84415Z2VSSF38S1WQDJ",
+      "success": true,
+      "txid": "acdd515ccb4e686e72211555417ef592f1ccc0166215d111b30e5f4a60f590c9"
+    },
+    {
+      "address": "SPD8JB775YVNCVECY3BP5EHG0Z9WVZ9ABWFWH8ZZ",
+      "success": true,
+      "txid": "b85a3398a5c000f8ee2adf3bc2edfebb93c85373d4c6f36b30689c86656d2ac1"
+    },
+    {
+      "address": "SP21R5KT074ZRM0GJVCVNMP9MEWDDM6H0VQZ4YEX4",
+      "success": true,
+      "txid": "bec3ec28da93371e3cf0d6116380a314a069d4356de8d30637da4dbfe3d664df"
+    },
+    {
+      "address": "SP1HMQPK4B3H6MJP66X97QHK2AD8VEWTP5H2ABFRK",
+      "success": true,
+      "txid": "4041a91b6ef2392cae3bca701c8ca6f7d9d84c8b195a8be1d9a9ee8e60be0f5b"
+    },
+    {
+      "address": "SP3R78H6NADT7SFCB7XSV83Y5G86DBNYAHVS64183",
+      "success": true,
+      "txid": "e3d553bb24f2f87a0e7d488987e103d446d217ca58e8fa7b2e3f9715ef5179d7"
+    },
+    {
+      "address": "SP12KCYQENV25W3G0YHV1X50DRED9VKNDA8ZN289M",
+      "success": true,
+      "txid": "b19eb47559ad25bd9b4b65a36a8cd93bcad67164d543571f834b4ab893d38966"
+    },
+    {
+      "address": "SP65DNN0M2WF5G19K5W1MQMMNE9TRWEZ2HE08W67",
+      "success": true,
+      "txid": "25c83cfa67981a38da81b0067684012d4fd773df98aa501da308e4ba8c788468"
+    },
+    {
+      "address": "SP37V1R9F2BCZHWNA6X02FWXKS7K6FP9Y3V9486PK",
+      "success": true,
+      "txid": "75e42e6db87821b8d1d7ee6007a7c63d51ac522fab8a79b891bdacb2fcc8de3f"
+    },
+    {
+      "address": "SP236E2H0KTXMY08BS5B027ZCK7VMCDEHWBFT7ZZR",
+      "success": true,
+      "txid": "62debd35376d05d81f3d140e948c160831c2a76cb2201cd87f94fab3688268da"
+    },
+    {
+      "address": "SPZDRWVJ3M1G7ANT38F6V6TYD30K46GFR9BJWAK3",
+      "success": true,
+      "txid": "a1061d098394b8f941bc287f94507d83dbd01418d9876832fa7bfceaa9bb27c9"
+    },
+    {
+      "address": "SPS0ACZY6PV9W628XZNWH9Q6C5CWAWS6818T08Y",
+      "success": true,
+      "txid": "f0fc8b9f06a6a91725c911b7575b48d4cd333229a1a13581fc8aa91414803fff"
+    },
+    {
+      "address": "SP17E5NY84G9007Z91YNA861NT0SYZRP9ZNRFKZ0K",
+      "success": true,
+      "txid": "e1f9f76fb6c3f7cf8e4d07d6342583eba0a8a72207a16572ac142ebfd06e9970"
+    },
+    {
+      "address": "SPAQVKFFJA5BQCDR43TP7J81WXE6HV64FRZ4BP3G",
+      "success": true,
+      "txid": "16cc28a884aa5d80fa0f5cbc2a13f2b197ac248fbb904de9c2bb760053a9607f"
+    },
+    {
+      "address": "SP7HSC0YB9QF3CH5YNGPDYQ83257NQ4SF4GSH2QQ",
+      "success": true,
+      "txid": "fc566355a4b986874db13206cdb0e167338b60daf8bd736430edf5469798d102"
+    },
+    {
+      "address": "SP1QK7FGPWKDZCQGHBGTXQG8N8SBH4PG824N5HXCW",
+      "success": true,
+      "txid": "16139955c43b67b8f806138f1ba55b7d17c58b3f93731300f622e7051eb8088e"
+    },
+    {
+      "address": "SPWRWAC8026GR6VB6P25E9GH45ZC4VSY15K1TZXJ",
+      "success": true,
+      "txid": "e9c9b38dc2d973314f97b092567efefa1760deb5cfa57798922706f5938cea84"
+    },
+    {
+      "address": "SP2859B2CPTRBEEVW5239R7ZX6F3NP36J0JPPMP9H",
+      "success": true,
+      "txid": "218954097f4c0691bd7b43dddc88ea5668b43b766038b74e39ed0d273e8a389d"
+    },
+    {
+      "address": "SP18K3BDFE9HV9D54HM7TVM46WZDZAWBQWXRKBTWK",
+      "success": true,
+      "txid": "66756aeb64202f02341ed6f1850b95fe7091af2d2e2dd382cd394777b43a6d77"
+    },
+    {
+      "address": "SP3T3690XJK5V878VJRRWY8FZECJ8999VPCD8NWD9",
+      "success": true,
+      "txid": "7a518a1f0fffdabf1342583b74d5da31c6f2795b74bd8d75a9f0b241fff38cc6"
+    },
+    {
+      "address": "SP2JWN7H1F5ZSZ4E9K14YZVWX15MKW2XR3KQCNW0A",
+      "success": true,
+      "txid": "bac0f56ba0141a919305efc0af6c78144a639f4b1f0c9a56be762a511f2f9e9c"
+    },
+    {
+      "address": "SP2WEAZ9F8T2YD2ZV3KH2P528VY7YCBAP23485PHV",
+      "success": true,
+      "txid": "0e905cb73707d6ba9e597d80be0491eeea4a3cd60f46aebd5c78f9b98c36c87e"
+    },
+    {
+      "address": "SP2R57BACNBR5GC55AB1E6GEMZ9QE605X73DBJ8H8",
+      "success": true,
+      "txid": "3487f93fb87167aa78c880af3c3cb779bbabe9de02dbc972b05cc8f802498209"
+    },
+    {
+      "address": "SP458WNRA23JEBY949XKH422NZ8QC5E6TKVKA2KV",
+      "success": true,
+      "txid": "964f4b37d9eff2d0a4e2f9c4c1170fb6cfc4bce1c04a26352bfb5f05b60e4c50"
+    },
+    {
+      "address": "SP215ADXTET5387NXJ3N4SD77XXAEWEMEX4K0N2Y3",
+      "success": true,
+      "txid": "f3584e1d4afa20fb7fa9bf97887d4cb934d1ffdbe4a03c0c53f44e480a0b8b81"
+    },
+    {
+      "address": "SP3KVZ4WW7R5FX1ASZDFS1VVAPCGCJ8Q0RXPBQMP1",
+      "success": true,
+      "txid": "43df0443b8c376e83ff443bd2203207af18bc11b14cce7df7e736f5b42bfd1cc"
+    },
+    {
+      "address": "SP2Q4R9YQWE2PDSQFN7YWXHJXF58HT5R5AW95MF4X",
+      "success": false,
+      "error": "transaction rejected (NotEnoughFunds)",
+      "reason": "NotEnoughFunds",
+      "reasonData": {
+        "actual": "0x00000000000000000000000000000000",
+        "expected": "0x00000000000000000000000000002710"
+      }
+    },
+    {
+      "address": "SP31FFNDZ4G4TPCNB710AZQD7X4WFA00CK44AAFAA",
+      "success": false,
+      "error": "transaction rejected (NotEnoughFunds)",
+      "reason": "NotEnoughFunds",
+      "reasonData": {
+        "actual": "0x00000000000000000000000000000000",
+        "expected": "0x00000000000000000000000000002710"
+      }
+    },
+    {
+      "address": "SP25GHZ8KTRN5RYKQY8SGHRQ1VBTPHR94G764A93B",
+      "success": false,
+      "error": "transaction rejected (NotEnoughFunds)",
+      "reason": "NotEnoughFunds",
+      "reasonData": {
+        "actual": "0x00000000000000000000000000000000",
+        "expected": "0x00000000000000000000000000002710"
+      }
+    },
+    {
+      "address": "SP3JSBT4RP0M17YVSY3ZJ1NQBPJDV1FEA91HKCKN7",
+      "success": false,
+      "error": "transaction rejected (NotEnoughFunds)",
+      "reason": "NotEnoughFunds",
+      "reasonData": {
+        "actual": "0x00000000000000000000000000000000",
+        "expected": "0x00000000000000000000000000002710"
+      }
+    },
+    {
+      "address": "SP09PYJQ0DRJJJDPF654AP6VCB5A72FPDPVH6B77",
+      "success": false,
+      "error": "transaction rejected (NotEnoughFunds)",
+      "reason": "NotEnoughFunds",
+      "reasonData": {
+        "actual": "0x00000000000000000000000000000000",
+        "expected": "0x00000000000000000000000000002710"
+      }
+    },
+    {
+      "address": "SP16267XAV3C4ZPM7TKT0BDAHEHTDVKFCQV4E7VQ9",
+      "success": false,
+      "error": "transaction rejected (NotEnoughFunds)",
+      "reason": "NotEnoughFunds",
+      "reasonData": {
+        "actual": "0x00000000000000000000000000000000",
+        "expected": "0x00000000000000000000000000002710"
+      }
+    },
+    {
+      "address": "SP1W5FYA2QNKVYXNJ5X6X7TRM1AQC7JS1BRJKSTRJ",
+      "success": false,
+      "error": "transaction rejected (NotEnoughFunds)",
+      "reason": "NotEnoughFunds",
+      "reasonData": {
+        "actual": "0x00000000000000000000000000000000",
+        "expected": "0x00000000000000000000000000002710"
+      }
+    },
+    {
+      "address": "SP3KQGS77RT7GRS6NYT29JSRPHSWT9WK0FCTPNK3N",
+      "success": false,
+      "error": "transaction rejected (NotEnoughFunds)",
+      "reason": "NotEnoughFunds",
+      "reasonData": {
+        "actual": "0x00000000000000000000000000000000",
+        "expected": "0x00000000000000000000000000002710"
+      }
+    },
+    {
+      "address": "SP3MTW4H4WCYTFK98RQ4T9DEW32NXWJNQ8CPN65FX",
+      "success": false,
+      "error": "transaction rejected (NotEnoughFunds)",
+      "reason": "NotEnoughFunds",
+      "reasonData": {
+        "actual": "0x00000000000000000000000000000000",
+        "expected": "0x00000000000000000000000000002710"
+      }
+    },
+    {
+      "address": "SP3WN5W686YFEJ1A1XR6FFYRTCH33KEEETRD8MNFN",
+      "success": false,
+      "error": "transaction rejected (NotEnoughFunds)",
+      "reason": "NotEnoughFunds",
+      "reasonData": {
+        "actual": "0x00000000000000000000000000000000",
+        "expected": "0x00000000000000000000000000002710"
+      }
+    },
+    {
+      "address": "SP3AJE2376MDE9553KD5C74KDR9AEZGQ4WZQBCFEF",
+      "success": false,
+      "error": "transaction rejected (NotEnoughFunds)",
+      "reason": "NotEnoughFunds",
+      "reasonData": {
+        "actual": "0x00000000000000000000000000000000",
+        "expected": "0x00000000000000000000000000002710"
+      }
+    },
+    {
+      "address": "SP1F2D48QN8HK9GGNPZYGHNP4PV05PKS66CDSH6XX",
+      "success": false,
+      "error": "transaction rejected (NotEnoughFunds)",
+      "reason": "NotEnoughFunds",
+      "reasonData": {
+        "actual": "0x00000000000000000000000000000000",
+        "expected": "0x00000000000000000000000000002710"
+      }
+    },
+    {
+      "address": "SP1GWWT6KNT1T61F6BK4K9GW7GDZZHYR9K1TVF2Z7",
+      "success": false,
+      "error": "transaction rejected (NotEnoughFunds)",
+      "reason": "NotEnoughFunds",
+      "reasonData": {
+        "actual": "0x00000000000000000000000000000000",
+        "expected": "0x00000000000000000000000000002710"
+      }
+    }
+  ]
+}

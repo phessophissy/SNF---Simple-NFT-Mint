@@ -33,7 +33,7 @@ function getNetwork() {
 
 function getApiUrl() {
   return CONFIG.NETWORK === 'mainnet'
-    ? 'https://api.mainnet.hiro.so'
+    ? 'https://api.hiro.so'
     : 'https://api.testnet.hiro.so';
 }
 

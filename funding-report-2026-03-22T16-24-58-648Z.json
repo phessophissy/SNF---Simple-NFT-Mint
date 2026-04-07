@@ -1,0 +1,101 @@
+{
+  "createdAt": "2026-03-22T16:24:58.649Z",
+  "funderAddress": "SP1QPNQB6R3EFMTQYGHG9J7N03S3K52ARSE1VEVX4",
+  "walletFile": "/home/thee1/SNF---Simple-NFT-Mint/failed-listing-wallets-2026-03-22.json",
+  "amountMicroStx": "11000",
+  "feeMicroStx": "1000",
+  "successCount": 18,
+  "failCount": 0,
+  "results": [
+    {
+      "address": "SP3KTZM9BVZ0Z0BX90BP65FX74PJ2NJ3CFNXNRJ37",
+      "success": true,
+      "txid": "706258f27de568865ecbb1b5456fdb7d9a5491740582ae9fc416771163b5b66c"
+    },
+    {
+      "address": "SPZQGY6H38N82Z851JCPSPHTV86RRRRPCKFYMCRJ",
+      "success": true,
+      "txid": "d332c64b34f30c19cabf4ccdd1c4eb079ef521845321d083d3ad74c6d3d4ec82"
+    },
+    {
+      "address": "SPJK8SK2207EVEGERZE3ZAQWHMZCMHJJ5SE8HN4R",
+      "success": true,
+      "txid": "48b88b7cd6511133826f12b9e564541808bebd11081c9c94c859448f4c321e10"
+    },
+    {
+      "address": "SP5HKJCF0AJ45CZTDCJ9CMW1WFBVX3G35XGCEA7G",
+      "success": true,
+      "txid": "b0a349320c4c8c034c9e6f7c3f5e976c71b15d49e9489208adc7205635e136fa"
+    },
+    {
+      "address": "SP3JPYPRQX844907DYX0T7P937XJDTX40Q5Z3PCAD",
+      "success": true,
+      "txid": "dcb80322a5683f60800e641fcdffe88cfdd034a41f5532c137000f513903730a"
+    },
+    {
+      "address": "SP1564SHXHPCWD3C4PNZNKJZP85QEEV381JWSBFQH",
+      "success": true,
+      "txid": "f0d273160d789ce35ceafe0e35645f40f1f44110b4f35c498d19a175c4bddbc0"
+    },
+    {
+      "address": "SP18YDP11CBE232VGHPM4M9APZ271X96CMBHZG0XQ",
+      "success": true,
+      "txid": "be66c834c8048d8eca5a54c153beba4c76bc75a2b40316bb781d28d36fc16da7"
+    },
+    {
+      "address": "SP3TQVEMSHVDM9DXP65F3G00E240CGAF366RCMYKJ",
+      "success": true,
+      "txid": "c2bf625cce835ea733d732ff53baf6dfeb4e45f4e3a6340e0cc1b0745cfab7c6"
+    },
+    {
+      "address": "SP18S6EVWV2SMST15HZWQD5M6K3G6M56D1YRTGJTE",
+      "success": true,
+      "txid": "74f778d6650e459015d4828884955bac3769648f4f43725c65aa5c90f6cb3062"
+    },
+    {
+      "address": "SP91DNZF5KS980Z6Q1QR5C6T1RHTJBE163W5CB0X",
+      "success": true,
+      "txid": "42f8f00905593e6829b4757303184a53fd974217a1f0693af5cd1048222b0b6b"
+    },
+    {
+      "address": "SP30MAAJDJGH83WRH9102PYSYD0NFQCYGZ3S4FBV1",
+      "success": true,
+      "txid": "b4214ce501c6b5abdf16b9ec1fc5c04bd3a9e3164a0926b41c8d77e539ef1e84"
+    },
+    {
+      "address": "SP14V856SC8FYV6M6AHKA0K7KFBHPPS62864WDKVX",
+      "success": true,
+      "txid": "9c3b2c49f2e699c72237180b4a9ce2816092b86e3b8d74b48cba987f41071044"
+    },
+    {
+      "address": "SP1PS2AD9MSB9DVP2E2KQBTQ3A3XVHX1M7EAMPEFA",
+      "success": true,
+      "txid": "e78e77e10b1a162cb1ed264033687c622b95e2d3902ecb1d784aa52c4c87b4ee"
+    },
+    {
+      "address": "SP3DET47D8GCS1GPP3X9AB672ACEY6KRM06NJ9HQB",
+      "success": true,
+      "txid": "8dd62abbcf204a06438daee232952833ff0434de2592fbe21ec6eaec5efad22b"
+    },
+    {
+      "address": "SP1GZP17V4S7YK3WCMCB62CZG18NW0VC0VS1MQST8",
+      "success": true,
+      "txid": "a0498b0d0871de06eac516927d0dc57b9d5d6d71c218a689247723b824e1ced6"
+    },
+    {
+      "address": "SP34DX121PY4H9KZPQR9YV418E9PZ800DG22F79GD",
+      "success": true,
+      "txid": "a3877267a3cded839e6fcf83ee9af0e35bba99f63b2144f29a2a0c44ced6c9b3"
+    },
+    {
+      "address": "SP3WEGGZTCDG1G3XSARSMY128SWRZN79WGGT9YHH7",
+      "success": true,
+      "txid": "ad64009c69b0c14864497264ea85d4a440fe4f8d257c26a9b79b1f8ef7e8a8e4"
+    },
+    {
+      "address": "SP3Y169K3W606M1R59DYYPQ1EZ85RBAJD9M6D8YY1",
+      "success": true,
+      "txid": "2470787e497e09330a85241e5ca3282931470a07c4cb569dc58ee02023d3d583"
+    }
+  ]
+}

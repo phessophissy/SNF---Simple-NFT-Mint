@@ -1,0 +1,507 @@
+{
+  "network": "mainnet",
+  "contract": "SP31G2FZ5JN87BATZMP4ZRYE5F7WZQDNEXJ7G7X97.simple-nft-v4",
+  "walletFile": "/home/thee1/SpinningB/generated/mainnet-wallets.json",
+  "selectedWallets": 50,
+  "mintsPerWallet": 1,
+  "successCount": 1,
+  "failCount": 49,
+  "createdAt": "2026-03-23T06:25:14.690Z",
+  "results": [
+    {
+      "address": "SP3KTZM9BVZ0Z0BX90BP65FX74PJ2NJ3CFNXNRJ37",
+      "success": false,
+      "error": "transaction rejected (NotEnoughFunds)",
+      "reason": "NotEnoughFunds",
+      "reasonData": {
+        "actual": "0x00000000000000000000000000001a90",
+        "expected": "0x00000000000000000000000000002710"
+      }
+    },
+    {
+      "address": "SPZQGY6H38N82Z851JCPSPHTV86RRRRPCKFYMCRJ",
+      "success": false,
+      "error": "transaction rejected (NotEnoughFunds)",
+      "reason": "NotEnoughFunds",
+      "reasonData": {
+        "actual": "0x0000000000000000000000000000206c",
+        "expected": "0x00000000000000000000000000002710"
+      }
+    },
+    {
+      "address": "SP3FPZXZ36DG3G3XVJ0H3K91ZRA7CTZ5PMWAKCP87",
+      "success": false,
+      "error": "transaction rejected (NotEnoughFunds)",
+      "reason": "NotEnoughFunds",
+      "reasonData": {
+        "actual": "0x00000000000000000000000000000c80",
+        "expected": "0x00000000000000000000000000002710"
+      }
+    },
+    {
+      "address": "SPJK8SK2207EVEGERZE3ZAQWHMZCMHJJ5SE8HN4R",
+      "success": false,
+      "error": "transaction rejected (NotEnoughFunds)",
+      "reason": "NotEnoughFunds",
+      "reasonData": {
+        "actual": "0x00000000000000000000000000002134",
+        "expected": "0x00000000000000000000000000002710"
+      }
+    },
+    {
+      "address": "SP3MDYGWSWVKWGDY3E19GTGM0G7WS8191ASEPM35M",
+      "success": false,
+      "error": "transaction rejected (NotEnoughFunds)",
+      "reason": "NotEnoughFunds",
+      "reasonData": {
+        "actual": "0x00000000000000000000000000000fa0",
+        "expected": "0x00000000000000000000000000002710"
+      }
+    },
+    {
+      "address": "SP1EK02HNGRE56ADK4Y057GD03N2590WY1QFMW55X",
+      "success": false,
+      "error": "transaction rejected (NotEnoughFunds)",
+      "reason": "NotEnoughFunds",
+      "reasonData": {
+        "actual": "0x000000000000000000000000000002bc",
+        "expected": "0x00000000000000000000000000002710"
+      }
+    },
+    {
+      "address": "SP5HKJCF0AJ45CZTDCJ9CMW1WFBVX3G35XGCEA7G",
+      "success": false,
+      "error": "transaction rejected (NotEnoughFunds)",
+      "reason": "NotEnoughFunds",
+      "reasonData": {
+        "actual": "0x00000000000000000000000000002134",
+        "expected": "0x00000000000000000000000000002710"
+      }
+    },
+    {
+      "address": "SP3JPYPRQX844907DYX0T7P937XJDTX40Q5Z3PCAD",
+      "success": false,
+      "error": "transaction rejected (NotEnoughFunds)",
+      "reason": "NotEnoughFunds",
+      "reasonData": {
+        "actual": "0x00000000000000000000000000002134",
+        "expected": "0x00000000000000000000000000002710"
+      }
+    },
+    {
+      "address": "SP1564SHXHPCWD3C4PNZNKJZP85QEEV381JWSBFQH",
+      "success": false,
+      "error": "transaction rejected (NotEnoughFunds)",
+      "reason": "NotEnoughFunds",
+      "reasonData": {
+        "actual": "0x00000000000000000000000000001c20",
+        "expected": "0x00000000000000000000000000002710"
+      }
+    },
+    {
+      "address": "SP18YDP11CBE232VGHPM4M9APZ271X96CMBHZG0XQ",
+      "success": false,
+      "error": "transaction rejected (NotEnoughFunds)",
+      "reason": "NotEnoughFunds",
+      "reasonData": {
+        "actual": "0x00000000000000000000000000001644",
+        "expected": "0x00000000000000000000000000002710"
+      }
+    },
+    {
+      "address": "SP372PNK4T77QZV03NYSWY8ZGHK35HR36DFS99FMD",
+      "success": false,
+      "error": "transaction rejected (NotEnoughFunds)",
+      "reason": "NotEnoughFunds",
+      "reasonData": {
+        "actual": "0x00000000000000000000000000000e74",
+        "expected": "0x00000000000000000000000000002710"
+      }
+    },
+    {
+      "address": "SP3TQVEMSHVDM9DXP65F3G00E240CGAF366RCMYKJ",
+      "success": false,
+      "error": "transaction rejected (NotEnoughFunds)",
+      "reason": "NotEnoughFunds",
+      "reasonData": {
+        "actual": "0x000000000000000000000000000016a8",
+        "expected": "0x00000000000000000000000000002710"
+      }
+    },
+    {
+      "address": "SP3ERXSZBZHC6SVZCXDN98TDJ9QYJBXQM2NRWE4JF",
+      "success": false,
+      "error": "transaction rejected (NotEnoughFunds)",
+      "reason": "NotEnoughFunds",
+      "reasonData": {
+        "actual": "0x00000000000000000000000000000ed8",
+        "expected": "0x00000000000000000000000000002710"
+      }
+    },
+    {
+      "address": "SPDAQFSN0RYTY5ENWX2G3HNET0JTBG5BJE0MAYCA",
+      "success": false,
+      "error": "transaction rejected (NotEnoughFunds)",
+      "reason": "NotEnoughFunds",
+      "reasonData": {
+        "actual": "0x00000000000000000000000000000dac",
+        "expected": "0x00000000000000000000000000002710"
+      }
+    },
+    {
+      "address": "SP2X7X90783MMGPMJ98C1SEGKDVSRWYG44JY83M9X",
+      "success": false,
+      "error": "transaction rejected (NotEnoughFunds)",
+      "reason": "NotEnoughFunds",
+      "reasonData": {
+        "actual": "0x00000000000000000000000000000ed8",
+        "expected": "0x00000000000000000000000000002710"
+      }
+    },
+    {
+      "address": "SP18S6EVWV2SMST15HZWQD5M6K3G6M56D1YRTGJTE",
+      "success": false,
+      "error": "transaction rejected (NotEnoughFunds)",
+      "reason": "NotEnoughFunds",
+      "reasonData": {
+        "actual": "0x000000000000000000000000000017d4",
+        "expected": "0x00000000000000000000000000002710"
+      }
+    },
+    {
+      "address": "SP38T94D0MVTPGNWY7DFZF77Q2KDN5J9A3A954EHN",
+      "success": false,
+      "error": "transaction rejected (NotEnoughFunds)",
+      "reason": "NotEnoughFunds",
+      "reasonData": {
+        "actual": "0x000000000000000000000000000003e8",
+        "expected": "0x00000000000000000000000000002710"
+      }
+    },
+    {
+      "address": "SPV64P078ZGZ5CPCRT89S3N9CQ8MTK69ZZR55B2K",
+      "success": false,
+      "error": "transaction rejected (NotEnoughFunds)",
+      "reason": "NotEnoughFunds",
+      "reasonData": {
+        "actual": "0x000000000000000000000000000003e8",
+        "expected": "0x00000000000000000000000000002710"
+      }
+    },
+    {
+      "address": "SP91DNZF5KS980Z6Q1QR5C6T1RHTJBE163W5CB0X",
+      "success": false,
+      "error": "transaction rejected (NotEnoughFunds)",
+      "reason": "NotEnoughFunds",
+      "reasonData": {
+        "actual": "0x00000000000000000000000000002008",
+        "expected": "0x00000000000000000000000000002710"
+      }
+    },
+    {
+      "address": "SP3G6JKMP2QKBJ120R3PVJJY7XC4NMW57C7PXHA3Z",
+      "success": false,
+      "error": "transaction rejected (NotEnoughFunds)",
+      "reason": "NotEnoughFunds",
+      "reasonData": {
+        "actual": "0x00000000000000000000000000000898",
+        "expected": "0x00000000000000000000000000002710"
+      }
+    },
+    {
+      "address": "SP2A2W5BE9ADQH0KKER20PEZTBCK0TRQDEAJ6BT1E",
+      "success": false,
+      "error": "transaction rejected (NotEnoughFunds)",
+      "reason": "NotEnoughFunds",
+      "reasonData": {
+        "actual": "0x000000000000000000000000000003e8",
+        "expected": "0x00000000000000000000000000002710"
+      }
+    },
+    {
+      "address": "SP30MAAJDJGH83WRH9102PYSYD0NFQCYGZ3S4FBV1",
+      "success": false,
+      "error": "transaction rejected (NotEnoughFunds)",
+      "reason": "NotEnoughFunds",
+      "reasonData": {
+        "actual": "0x00000000000000000000000000002134",
+        "expected": "0x00000000000000000000000000002710"
+      }
+    },
+    {
+      "address": "SP14V856SC8FYV6M6AHKA0K7KFBHPPS62864WDKVX",
+      "success": false,
+      "error": "transaction rejected (NotEnoughFunds)",
+      "reason": "NotEnoughFunds",
+      "reasonData": {
+        "actual": "0x00000000000000000000000000001c20",
+        "expected": "0x00000000000000000000000000002710"
+      }
+    },
+    {
+      "address": "SP1PS2AD9MSB9DVP2E2KQBTQ3A3XVHX1M7EAMPEFA",
+      "success": false,
+      "error": "transaction rejected (NotEnoughFunds)",
+      "reason": "NotEnoughFunds",
+      "reasonData": {
+        "actual": "0x000000000000000000000000000020d0",
+        "expected": "0x00000000000000000000000000002710"
+      }
+    },
+    {
+      "address": "SP2DDK7GYQFK4HG52D2RPSYM5J2EYPKQ696GAG8YV",
+      "success": false,
+      "error": "transaction rejected (NotEnoughFunds)",
+      "reason": "NotEnoughFunds",
+      "reasonData": {
+        "actual": "0x00000000000000000000000000000f1a",
+        "expected": "0x00000000000000000000000000002710"
+      }
+    },
+    {
+      "address": "SP3DET47D8GCS1GPP3X9AB672ACEY6KRM06NJ9HQB",
+      "success": false,
+      "error": "transaction rejected (NotEnoughFunds)",
+      "reason": "NotEnoughFunds",
+      "reasonData": {
+        "actual": "0x00000000000000000000000000001db0",
+        "expected": "0x00000000000000000000000000002710"
+      }
+    },
+    {
+      "address": "SP3J440QZ42T3VFG3WZY9ARWQPYATBPR6FG0H8E8Z",
+      "success": false,
+      "error": "transaction rejected (NotEnoughFunds)",
+      "reason": "NotEnoughFunds",
+      "reasonData": {
+        "actual": "0x0000000000000000000000000000074a",
+        "expected": "0x00000000000000000000000000002710"
+      }
+    },
+    {
+      "address": "SP3W8DWEFHPP3YKW9PBMB0WYZK7H51BW8PF7QW4TA",
+      "success": false,
+      "error": "transaction rejected (NotEnoughFunds)",
+      "reason": "NotEnoughFunds",
+      "reasonData": {
+        "actual": "0x0000000000000000000000000000110e",
+        "expected": "0x00000000000000000000000000002710"
+      }
+    },
+    {
+      "address": "SP2QKT5A97727XTG5XJN8MTVENMZZ0N4BTBVCDHPZ",
+      "success": false,
+      "error": "transaction rejected (NotEnoughFunds)",
+      "reason": "NotEnoughFunds",
+      "reasonData": {
+        "actual": "0x00000000000000000000000000000af0",
+        "expected": "0x00000000000000000000000000002710"
+      }
+    },
+    {
+      "address": "SP245ST9PMSS0X66BG6EG0EFT3Q028AXERTDNSV2H",
+      "success": false,
+      "error": "transaction rejected (NotEnoughFunds)",
+      "reason": "NotEnoughFunds",
+      "reasonData": {
+        "actual": "0x00000000000000000000000000000e74",
+        "expected": "0x00000000000000000000000000002710"
+      }
+    },
+    {
+      "address": "SP34A44WY8F7HZB1M1BWFBQRPZRJCDZ0FWPHEFMAZ",
+      "success": false,
+      "error": "transaction rejected (NotEnoughFunds)",
+      "reason": "NotEnoughFunds",
+      "reasonData": {
+        "actual": "0x00000000000000000000000000000af0",
+        "expected": "0x00000000000000000000000000002710"
+      }
+    },
+    {
+      "address": "SPEKTVV2PCSNJM8EFMFDB33KMETFH8WMAEQZ43DV",
+      "success": false,
+      "error": "transaction rejected (NotEnoughFunds)",
+      "reason": "NotEnoughFunds",
+      "reasonData": {
+        "actual": "0x00000000000000000000000000000fa0",
+        "expected": "0x00000000000000000000000000002710"
+      }
+    },
+    {
+      "address": "SP1GZP17V4S7YK3WCMCB62CZG18NW0VC0VS1MQST8",
+      "success": false,
+      "error": "transaction rejected (NotEnoughFunds)",
+      "reason": "NotEnoughFunds",
+      "reasonData": {
+        "actual": "0x00000000000000000000000000001e78",
+        "expected": "0x00000000000000000000000000002710"
+      }
+    },
+    {
+      "address": "SPV6V5E6F1W0PJ6XBNA0HQV104B3PC41X3A0NMH3",
+      "success": false,
+      "error": "transaction rejected (NotEnoughFunds)",
+      "reason": "NotEnoughFunds",
+      "reasonData": {
+        "actual": "0x00000000000000000000000000000fa0",
+        "expected": "0x00000000000000000000000000002710"
+      }
+    },
+    {
+      "address": "SP1MFJ28J1HF259RWS8CFWEJPMVKWEA0QPB2YMF06",
+      "success": false,
+      "error": "transaction rejected (NotEnoughFunds)",
+      "reason": "NotEnoughFunds",
+      "reasonData": {
+        "actual": "0x00000000000000000000000000000af0",
+        "expected": "0x00000000000000000000000000002710"
+      }
+    },
+    {
+      "address": "SP1811DZ6WEXRYA30D0K5RAEG8X1NDMQZK7YKPS4H",
+      "success": true,
+      "txid": "4448b2a21b119907259ba3e9827b9c236cbe9e394301addb73f02dc9e579bf60"
+    },
+    {
+      "address": "SP34DX121PY4H9KZPQR9YV418E9PZ800DG22F79GD",
+      "success": false,
+      "error": "transaction rejected (NotEnoughFunds)",
+      "reason": "NotEnoughFunds",
+      "reasonData": {
+        "actual": "0x0000000000000000000000000000157c",
+        "expected": "0x00000000000000000000000000002710"
+      }
+    },
+    {
+      "address": "SP12Z4QDPG38BDGYS3V9V8Z4J9ZH5XZDT3VJ3M33",
+      "success": false,
+      "error": "transaction rejected (NotEnoughFunds)",
+      "reason": "NotEnoughFunds",
+      "reasonData": {
+        "actual": "0x00000000000000000000000000000af0",
+        "expected": "0x00000000000000000000000000002710"
+      }
+    },
+    {
+      "address": "SP1K7RHNYJH6HYS207Y0CV943FNYGTWCMV32E4BE4",
+      "success": false,
+      "error": "transaction rejected (NotEnoughFunds)",
+      "reason": "NotEnoughFunds",
+      "reasonData": {
+        "actual": "0x00000000000000000000000000000a8c",
+        "expected": "0x00000000000000000000000000002710"
+      }
+    },
+    {
+      "address": "SPBS7AQ8T48KBYKP30RGR55W5HBBP9MH74N0EC4V",
+      "success": false,
+      "error": "transaction rejected (NotEnoughFunds)",
+      "reason": "NotEnoughFunds",
+      "reasonData": {
+        "actual": "0x00000000000000000000000000000af0",
+        "expected": "0x00000000000000000000000000002710"
+      }
+    },
+    {
+      "address": "SP8RMRGR13595DWJJ6AB9CD7EP0H0ERER21EQGAH",
+      "success": false,
+      "error": "transaction rejected (NotEnoughFunds)",
+      "reason": "NotEnoughFunds",
+      "reasonData": {
+        "actual": "0x00000000000000000000000000000fa0",
+        "expected": "0x00000000000000000000000000002710"
+      }
+    },
+    {
+      "address": "SP3PYMT41E0M8X27Z9SW7N91109KAYW3E94YK7Z7S",
+      "success": false,
+      "error": "transaction rejected (NotEnoughFunds)",
+      "reason": "NotEnoughFunds",
+      "reasonData": {
+        "actual": "0x000000000000000000000000000004b0",
+        "expected": "0x00000000000000000000000000002710"
+      }
+    },
+    {
+      "address": "SP1AH2D92BPJVZK9NAKV05S5YWSCHHCWZY246FN1C",
+      "success": false,
+      "error": "transaction rejected (NotEnoughFunds)",
+      "reason": "NotEnoughFunds",
+      "reasonData": {
+        "actual": "0x00000000000000000000000000000ed8",
+        "expected": "0x00000000000000000000000000002710"
+      }
+    },
+    {
+      "address": "SP10KFVZX6MWCKEDDEBMAAWPZ2WX14JCM6339HMKY",
+      "success": false,
+      "error": "transaction rejected (NotEnoughFunds)",
+      "reason": "NotEnoughFunds",
+      "reasonData": {
+        "actual": "0x000000000000000000000000000009c4",
+        "expected": "0x00000000000000000000000000002710"
+      }
+    },
+    {
+      "address": "SP18S10ZZFRD2K0K4HTANF7741ZWST7B00ANXSZMG",
+      "success": false,
+      "error": "transaction rejected (NotEnoughFunds)",
+      "reason": "NotEnoughFunds",
+      "reasonData": {
+        "actual": "0x000000000000000000000000000009c4",
+        "expected": "0x00000000000000000000000000002710"
+      }
+    },
+    {
+      "address": "SP3WEGGZTCDG1G3XSARSMY128SWRZN79WGGT9YHH7",
+      "success": false,
+      "error": "transaction rejected (NotEnoughFunds)",
+      "reason": "NotEnoughFunds",
+      "reasonData": {
+        "actual": "0x0000000000000000000000000000170c",
+        "expected": "0x00000000000000000000000000002710"
+      }
+    },
+    {
+      "address": "SP2SKHEA8P0M4H3BT17SAK9A4BT54MW8TPEFSXM78",
+      "success": false,
+      "error": "transaction rejected (NotEnoughFunds)",
+      "reason": "NotEnoughFunds",
+      "reasonData": {
+        "actual": "0x000000000000000000000000000009c4",
+        "expected": "0x00000000000000000000000000002710"
+      }
+    },
+    {
+      "address": "SP2VVKCKA2WD8PC9F96E5492B9VZDBZAF4BK4JWT7",
+      "success": false,
+      "error": "transaction rejected (NotEnoughFunds)",
+      "reason": "NotEnoughFunds",
+      "reasonData": {
+        "actual": "0x00000000000000000000000000000514",
+        "expected": "0x00000000000000000000000000002710"
+      }
+    },
+    {
+      "address": "SP3Y169K3W606M1R59DYYPQ1EZ85RBAJD9M6D8YY1",
+      "success": false,
+      "error": "transaction rejected (NotEnoughFunds)",
+      "reason": "NotEnoughFunds",
+      "reasonData": {
+        "actual": "0x000000000000000000000000000016a8",
+        "expected": "0x00000000000000000000000000002710"
+      }
+    },
+    {
+      "address": "SPHQFYTGSTAMAC562NGMXMW27CJ494SWRZDQP2S2",
+      "success": false,
+      "error": "transaction rejected (NotEnoughFunds)",
+      "reason": "NotEnoughFunds",
+      "reasonData": {
+        "actual": "0x00000000000000000000000000000af0",
+        "expected": "0x00000000000000000000000000002710"
+      }
+    }
+  ]
+}
