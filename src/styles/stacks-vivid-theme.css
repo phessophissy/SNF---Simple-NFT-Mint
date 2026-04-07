@@ -1019,3 +1019,5 @@ h1 {
     transition-duration: 0.01ms !important;
   }
 }
+
+::selection { background: var(--accent-1); color: var(--bg-start); }
