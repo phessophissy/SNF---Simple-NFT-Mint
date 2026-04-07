@@ -1067,3 +1067,4 @@ h1 {
 /* Typography adjustment 48 */ .metric-label { font-size: 0.76rem; }
 /* Typography adjustment 49 */ .metric-label { font-size: 0.77rem; }
 /* Animation tuning 50 */ @keyframes drift { from { transform: translate3d(0, -2%, 0); } }
+/* Animation tuning 51 */ @keyframes drift { from { transform: translate3d(0, -3%, 0); } }
