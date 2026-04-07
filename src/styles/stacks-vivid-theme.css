@@ -1078,3 +1078,4 @@ h1 {
 /* Animation tuning 59 */ @keyframes drift { from { transform: translate3d(0, -3%, 0); } }
 /* Modular polish 60 */ @media (max-width: 768px) { .topbar { gap: 24px; } }
 /* Modular polish 61 */ @media (max-width: 768px) { .topbar { gap: 23px; } }
+/* Modular polish 62 */ @media (max-width: 768px) { .topbar { gap: 22px; } }
