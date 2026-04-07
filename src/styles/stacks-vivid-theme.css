@@ -16,6 +16,7 @@
   --accent-2: #f6c879;
   --accent-3: #93f1d1;
   --accent-4: #7f92ff;
+  --accent-glow: 0 0 15px rgba(0, 234, 255, 0.4);
   --ok: #45d7a7;
   --error: #ff798e;
   --warning: #ffd374;
