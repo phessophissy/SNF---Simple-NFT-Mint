@@ -1178,3 +1178,16 @@ h1 {
   display: flex;
   gap: 16px;
 }
+.collection-media::after {
+  content: 'LIVE MINT';
+  position: absolute;
+  top: 20px; right: 20px;
+  background: var(--ok);
+  color: #000;
+  font-weight: 800;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  animation: pulse 2s infinite;
+}
+@keyframes pulse { 0% { opacity: 0.8; } 50% { opacity: 0.4; } 100% { opacity: 0.8; } }
