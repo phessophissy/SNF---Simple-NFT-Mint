@@ -1032,3 +1032,4 @@ h1 {
 
 .btn-primary:hover { transform: scale(1.05); box-shadow: var(--accent-glow); }
 /* Continuous refinement 15 */ .hero-grid { gap: 18px; }
+/* Continuous refinement 16 */ .hero-grid { gap: 19px; }
