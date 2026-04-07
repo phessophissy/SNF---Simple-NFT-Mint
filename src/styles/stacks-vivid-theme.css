@@ -1024,3 +1024,5 @@ h1 {
 ::-webkit-scrollbar { width: 10px; }
 ::-webkit-scrollbar-track { background: var(--bg-start); }
 ::-webkit-scrollbar-thumb { background: linear-gradient(var(--accent-1), var(--accent-2)); border-radius: 5px; }
+
+.neon-text { color: var(--accent-1); text-shadow: var(--accent-glow); }
