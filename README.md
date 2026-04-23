@@ -103,8 +103,8 @@ npm run preview
 
 ## Multi-Wallet Mint Script
 
-Use the bundled multi-wallet script to mint from your 50 pre-generated wallets in:
-`/home/thee1/SpinningB/generated/mainnet-wallets.json`
+Use the bundled multi-wallet script to mint from your pre-generated wallets in:
+`./wallets.json`
 
 ### Dry run (recommended first)
 
