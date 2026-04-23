@@ -14,7 +14,7 @@ import {
 } from '@stacks/transactions';
 import { STACKS_MAINNET, STACKS_TESTNET } from '@stacks/network';
 
-const DEFAULT_WALLET_FILE = '/home/thee1/SpinningB/generated/mainnet-wallets.json';
+const DEFAULT_WALLET_FILE = './wallets.json';
 
 const CONFIG = {
   NETWORK: process.env.NETWORK || 'mainnet',

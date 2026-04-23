@@ -13,7 +13,7 @@ import {
 } from '@stacks/transactions';
 import { STACKS_MAINNET, STACKS_TESTNET } from '@stacks/network';
 
-const DEFAULT_WALLET_FILE = '/home/thee1/SpinningB/generated/mainnet-wallets.json';
+const DEFAULT_WALLET_FILE = './wallets.json';
 
 const CONFIG = {
   CONTRACT_ADDRESS: process.env.CONTRACT_ADDRESS || 'SP31G2FZ5JN87BATZMP4ZRYE5F7WZQDNEXJ7G7X97',
