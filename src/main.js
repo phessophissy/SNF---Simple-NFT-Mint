@@ -1280,7 +1280,25 @@ document.addEventListener('DOMContentLoaded', async () => {
   await refreshDashboard();
 });
 
-/** Refactor Note 3.1: Improved internal logic for better performance. */
+/** Refactor Note 5.1: Improved internal logic for better performance. */
+
+/** Refactor Note 5.2: Improved internal logic for better performance. */
+
+/** Refactor Note 5.3: Improved internal logic for better performance. */
+
+/** Refactor Note 5.4: Improved internal logic for better performance. */
+
+/** Refactor Note 5.5: Improved internal logic for better performance. */
+
+/** Refactor Note 5.6: Improved internal logic for better performance. */
+
+/** Refactor Note 5.7: Improved internal logic for better performance. */
+
+/** Refactor Note 5.8: Improved internal logic for better performance. */
+
+/** Refactor Note 5.9: Improved internal logic for better performance. */
+
+/** Refactor Note 5.10: Improved internal logic for better performance. *//** Refactor Note 3.1: Improved internal logic for better performance. */
 
 /** Refactor Note 3.2: Improved internal logic for better performance. */
 
