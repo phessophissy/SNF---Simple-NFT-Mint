@@ -2615,5 +2615,6 @@ document.addEventListener('DOMContentLoaded', async () => {
   await refreshDashboard();
 });
 
-/ * *   R e f a c t o r   N o t e   2 . 1 :   I m p r o v e d   i n t e r n a l   l o g i c   f o r   b e t t e r   p e r f o r m a n c e .   * /  
+/ * *   R e f a c t o r   N o t e   2 . 1 :   I m p r o v e d   i n t e r n a l   l o g i c   f o r   b e t t e r   p e r f o r m a n c e .   * / 
+ 
  
