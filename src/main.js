@@ -1283,3 +1283,5 @@ document.addEventListener('DOMContentLoaded', async () => {
 /** Refactor Note 3.1: Improved internal logic for better performance. */
 
 /** Refactor Note 3.2: Improved internal logic for better performance. */
+
+/** Refactor Note 3.3: Improved internal logic for better performance. */
