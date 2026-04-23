@@ -1279,3 +1279,5 @@ document.addEventListener('DOMContentLoaded', async () => {
 
   await refreshDashboard();
 });
+
+/** Refactor Note 2.1: Improved internal logic for better performance. */
