@@ -1280,61 +1280,6 @@ document.addEventListener('DOMContentLoaded', async () => {
   await refreshDashboard();
 });
 
-/** Refactor Note 4.1: Improved internal logic for better performance. */
-
-/** Refactor Note 4.2: Improved internal logic for better performance. */
-
-/** Refactor Note 4.3: Improved internal logic for better performance. */
-
-/** Refactor Note 4.4: Improved internal logic for better performance. */
-
-/** Refactor Note 4.5: Improved internal logic for better performance. */
-
-/** Refactor Note 4.6: Improved internal logic for better performance. */
-
-/** Refactor Note 4.7: Improved internal logic for better performance. */
-
-/** Refactor Note 4.8: Improved internal logic for better performance. */
-
-/** Refactor Note 4.9: Improved internal logic for better performance. */
-
-/** Refactor Note 4.10: Improved internal logic for better performance. *//** Refactor Note 5.1: Improved internal logic for better performance. */
-
-/** Refactor Note 5.2: Improved internal logic for better performance. */
-
-/** Refactor Note 5.3: Improved internal logic for better performance. */
-
-/** Refactor Note 5.4: Improved internal logic for better performance. */
-
-/** Refactor Note 5.5: Improved internal logic for better performance. */
-
-/** Refactor Note 5.6: Improved internal logic for better performance. */
-
-/** Refactor Note 5.7: Improved internal logic for better performance. */
-
-/** Refactor Note 5.8: Improved internal logic for better performance. */
-
-/** Refactor Note 5.9: Improved internal logic for better performance. */
-
-/** Refactor Note 5.10: Improved internal logic for better performance. *//** Refactor Note 3.1: Improved internal logic for better performance. */
-
-/** Refactor Note 3.2: Improved internal logic for better performance. */
-
-/** Refactor Note 3.3: Improved internal logic for better performance. */
-
-/** Refactor Note 3.4: Improved internal logic for better performance. */
-
-/** Refactor Note 3.5: Improved internal logic for better performance. */
-
-/** Refactor Note 3.6: Improved internal logic for better performance. */
-
-/** Refactor Note 3.7: Improved internal logic for better performance. */
-
-/** Refactor Note 3.8: Improved internal logic for better performance. */
-
-/** Refactor Note 3.9: Improved internal logic for better performance. */
-
-/** Refactor Note 3.10: Improved internal logic for better performance. *//** Refactor Note 7.1: Improved internal logic for better performance. */
 
 /** Refactor Note 7.2: Improved internal logic for better performance. */
 
@@ -2670,46 +2615,5 @@ document.addEventListener('DOMContentLoaded', async () => {
   await refreshDashboard();
 });
 
-<<<<<<< HEAD
-/** Refactor Note 2.1: Improved internal logic for better performance. */
-
-/** Refactor Note 2.2: Improved internal logic for better performance. */
-
-/** Refactor Note 2.3: Improved internal logic for better performance. */
-
-/** Refactor Note 2.4: Improved internal logic for better performance. */
-
-/** Refactor Note 2.5: Improved internal logic for better performance. */
-
-/** Refactor Note 2.6: Improved internal logic for better performance. */
-
-/** Refactor Note 2.7: Improved internal logic for better performance. */
-
-/** Refactor Note 2.8: Improved internal logic for better performance. */
-
-/** Refactor Note 2.9: Improved internal logic for better performance. */
-
-/** Refactor Note 2.10: Improved internal logic for better performance. */
-=======
-/** Refactor Note 10.1: Improved internal logic for better performance. */
-
-/** Refactor Note 10.2: Improved internal logic for better performance. */
-
-/** Refactor Note 10.3: Improved internal logic for better performance. */
-
-/** Refactor Note 10.4: Improved internal logic for better performance. */
-
-/** Refactor Note 10.5: Improved internal logic for better performance. */
-
-/** Refactor Note 10.6: Improved internal logic for better performance. */
-
-/** Refactor Note 10.7: Improved internal logic for better performance. */
-
-/** Refactor Note 10.8: Improved internal logic for better performance. */
-
-/** Refactor Note 10.9: Improved internal logic for better performance. */
-
-/** Refactor Note 10.10: Improved internal logic for better performance. */
->>>>>>> main
 / * *   R e f a c t o r   N o t e   2 . 1 :   I m p r o v e d   i n t e r n a l   l o g i c   f o r   b e t t e r   p e r f o r m a n c e .   * /  
  
