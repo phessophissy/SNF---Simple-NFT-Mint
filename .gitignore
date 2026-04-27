@@ -58,3 +58,6 @@ generated-wallets.json
 multi-wallet-mint-*.log
 multi-wallet-marketplace-*.log
 mint-*.log
+
+# Local PR batch metadata
+.pr-batch/
