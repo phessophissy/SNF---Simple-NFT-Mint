@@ -48,3 +48,13 @@ multi-wallet-marketplace-report-*.json
 mint-list
 *.wallets.json
 *private*keys*
+
+# Generated run artifacts
+multi-wallet-mint-report-*.json
+mint-100-report-*.json
+funding-report-*.json
+failed-listing-wallets-*.json
+generated-wallets.json
+multi-wallet-mint-*.log
+multi-wallet-marketplace-*.log
+mint-*.log

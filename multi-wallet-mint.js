@@ -2,8 +2,7 @@
 // Multi-wallet NFT mint runner for Stacks
 // Default wallet source: /home/thee1/SpinningB/generated/mainnet-wallets.json
 
-import { readFileSync, writeFileSync } from 'node:fs';
-import { resolve } from 'node:path';
+import { writeFileSync } from 'node:fs';
 import {
   makeContractCall,
   broadcastTransaction,
@@ -12,6 +11,14 @@ import {
   getAddressFromPrivateKey,
 } from '@stacks/transactions';
 import { STACKS_MAINNET, STACKS_TESTNET } from '@stacks/network';
+import {
+  executeWithBroadcastRecovery,
+  fetchJsonWithRetry,
+  loadFailedAddressesFromReport,
+  loadWallets,
+  maskAddress,
+  sleep,
+} from './scripts/batch-utils.js';
 
 const DEFAULT_WALLET_FILE = './wallets.json';
 
@@ -25,6 +32,8 @@ const CONFIG = {
   START_INDEX: Number.parseInt(process.env.START_INDEX || '0', 10),
   MINTS_PER_WALLET: Number.parseInt(process.env.MINTS_PER_WALLET || '1', 10),
   RETRY_ATTEMPTS: Number.parseInt(process.env.RETRY_ATTEMPTS || '5', 10),
+  BROADCAST_RETRY_ATTEMPTS: Number.parseInt(process.env.BROADCAST_RETRY_ATTEMPTS || '3', 10),
+  BROADCAST_RETRY_DELAY_MS: Number.parseInt(process.env.BROADCAST_RETRY_DELAY_MS || '1600', 10),
 };
 
 function getNetwork() {
@@ -37,57 +46,11 @@ function getApiUrl() {
     : 'https://api.testnet.hiro.so';
 }
 
-function sleep(ms) {
-  return new Promise((resolvePromise) => setTimeout(resolvePromise, ms));
-}
-
-function maskAddress(address) {
-  if (!address || address.length < 12) return address || 'unknown';
-  return `${address.slice(0, 8)}...${address.slice(-6)}`;
-}
-
-function extractRetrySecondsFromBody(textBody) {
-  const match = textBody.match(/try again in\s+(\d+)\s+seconds/i);
-  return match ? Number.parseInt(match[1], 10) : null;
-}
-
-async function fetchJsonWithRetry(url, attempts = CONFIG.RETRY_ATTEMPTS) {
-  let delayMs = 1200;
-
-  for (let attempt = 1; attempt <= attempts; attempt += 1) {
-    try {
-      const response = await fetch(url);
-
-      if (response.ok) {
-        return await response.json();
-      }
-
-      const body = await response.text();
-      const retrySeconds = response.status === 429 ? extractRetrySecondsFromBody(body) : null;
-
-      if (attempt === attempts) {
-        throw new Error(`Request failed (${response.status}): ${body}`);
-      }
-
-      const backoff = retrySeconds ? retrySeconds * 1000 : delayMs;
-      console.log(`[retry] Status ${response.status}. Waiting ${Math.ceil(backoff / 1000)}s before attempt ${attempt + 1}/${attempts}...`);
-      await sleep(backoff + 200);
-      delayMs *= 2;
-    } catch (error) {
-      if (attempt === attempts) {
-        throw error;
-      }
-      console.log(`[retry] Fetch error: ${error.message}. Waiting ${Math.ceil(delayMs / 1000)}s before attempt ${attempt + 1}/${attempts}...`);
-      await sleep(delayMs + 200);
-      delayMs *= 2;
-    }
-  }
-
-  throw new Error('Unexpected retry flow');
-}
-
 async function getAccountNonce(address) {
-  const data = await fetchJsonWithRetry(`${getApiUrl()}/extended/v1/address/${address}/nonces`);
+  const data = await fetchJsonWithRetry(
+    `${getApiUrl()}/extended/v1/address/${address}/nonces`,
+    CONFIG.RETRY_ATTEMPTS,
+  );
   return Number(data.possible_next_nonce);
 }
 
@@ -112,6 +75,8 @@ function parseArgs(argv) {
   const args = {
     walletFile: DEFAULT_WALLET_FILE,
     dryRun: false,
+    retryReport: null,
+    onlyFailed: false,
   };
 
   for (let i = 0; i < argv.length; i += 1) {
@@ -128,6 +93,17 @@ function parseArgs(argv) {
       continue;
     }
 
+    if (arg === '--retry-report' && argv[i + 1]) {
+      args.retryReport = argv[i + 1];
+      i += 1;
+      continue;
+    }
+
+    if (arg === '--only-failed') {
+      args.onlyFailed = true;
+      continue;
+    }
+
     if (arg === '--help' || arg === '-h') {
       args.help = true;
       continue;
@@ -139,65 +115,9 @@ function parseArgs(argv) {
   return args;
 }
 
-function parseCsvWallets(csvRaw) {
-  const lines = csvRaw
-    .split(/\r?\n/)
-    .map((line) => line.trim())
-    .filter(Boolean);
-
-  if (lines.length < 2) {
-    return [];
-  }
-
-  const header = lines[0].split(',').map((h) => h.trim());
-  const addrIndex = header.indexOf('address');
-  const pkIndex = header.indexOf('privateKey');
-
-  if (addrIndex === -1 || pkIndex === -1) {
-    throw new Error('CSV is missing required columns: address, privateKey');
-  }
-
-  return lines.slice(1).map((line) => {
-    const parts = line.split(',');
-    return {
-      address: (parts[addrIndex] || '').trim(),
-      privateKey: (parts[pkIndex] || '').trim(),
-    };
-  });
-}
-
-function loadWallets(walletFile) {
-  const absolutePath = resolve(walletFile.replace(/^~\//, `${process.env.HOME || ''}/`));
-  const raw = readFileSync(absolutePath, 'utf8');
-
-  let wallets;
-
-  if (absolutePath.endsWith('.csv')) {
-    wallets = parseCsvWallets(raw);
-  } else {
-    const parsed = JSON.parse(raw);
-    if (Array.isArray(parsed)) {
-      wallets = parsed;
-    } else if (Array.isArray(parsed.wallets)) {
-      wallets = parsed.wallets;
-    } else {
-      throw new Error('JSON wallet file must be an array or have a wallets[] field');
-    }
-  }
-
-  const filtered = wallets
-    .map((wallet) => ({
-      address: wallet.address,
-      privateKey: wallet.privateKey,
-    }))
-    .filter((wallet) => wallet.privateKey);
-
-  return { wallets: filtered, absolutePath };
-}
-
 
 function printHelp() {
-  console.log('Usage: node multi-wallet-mint.js [--wallet-file <path>] [--dry-run]');
+  console.log('Usage: node multi-wallet-mint.js [--wallet-file <path>] [--dry-run] [--retry-report <path>] [--only-failed]');
   console.log('');
   console.log('Defaults:');
   console.log(`  Wallet file: ${DEFAULT_WALLET_FILE}`);
@@ -216,6 +136,8 @@ function printHelp() {
   console.log('  START_INDEX=0');
   console.log('  MINTS_PER_WALLET=1');
   console.log('  DELAY_MS=400');
+  console.log('  BROADCAST_RETRY_ATTEMPTS=3');
+  console.log('  BROADCAST_RETRY_DELAY_MS=1600');
 }
 
 async function main() {
@@ -233,12 +155,29 @@ async function main() {
     throw new Error('MINTS_PER_WALLET must be greater than 0');
   }
 
+  if (args.onlyFailed && !args.retryReport) {
+    throw new Error('--only-failed requires --retry-report <path>');
+  }
+
   const { wallets, absolutePath } = loadWallets(args.walletFile);
 
-  const selectedWallets = wallets.slice(
+  let selectedWallets = wallets.slice(
     CONFIG.START_INDEX,
     CONFIG.START_INDEX + CONFIG.WALLET_LIMIT,
   );
+
+  if (args.retryReport) {
+    const { absolutePath: retryPath, failedAddresses } = loadFailedAddressesFromReport(args.retryReport);
+    console.log(`Retry report: ${retryPath}`);
+    console.log(`Failed addresses in report: ${failedAddresses.size}`);
+
+    if (args.onlyFailed) {
+      selectedWallets = selectedWallets.filter((wallet) => {
+        const address = wallet.address || getAddressFromPrivateKey(wallet.privateKey, CONFIG.NETWORK);
+        return failedAddresses.has(address);
+      });
+    }
+  }
 
   if (selectedWallets.length === 0) {
     throw new Error('No wallets selected. Check wallet file, START_INDEX, and WALLET_LIMIT.');
@@ -287,40 +226,42 @@ async function main() {
     }
 
     for (let mintIndex = 0; mintIndex < CONFIG.MINTS_PER_WALLET; mintIndex += 1) {
-      try {
-        const res = await mintNFT(wallet.privateKey, nonce);
+        const txResult = await executeWithBroadcastRecovery({
+          send: (candidateNonce) => mintNFT(wallet.privateKey, candidateNonce),
+          initialNonce: nonce,
+          refreshNonce: async () => getAccountNonce(address),
+          maxAttempts: CONFIG.BROADCAST_RETRY_ATTEMPTS,
+          retryDelayMs: CONFIG.BROADCAST_RETRY_DELAY_MS,
+          onRetry: (message, attempt, maxAttempts) => {
+            console.log(`  Mint ${mintIndex + 1}: RETRY ${attempt}/${maxAttempts} -> ${message}`);
+          },
+        });
 
-        if (res.error) {
-          const errorMessage = res.reason
-            ? `${res.error} (${res.reason})`
-            : res.error;
-          console.log(`  Mint ${mintIndex + 1}: FAILED -> ${errorMessage}`);
-          failCount += 1;
-          results.push({
-            address,
-            success: false,
-            error: errorMessage,
-            reason: res.reason,
-            reasonData: res.reason_data,
-          });
-        } else {
-          console.log(`  Mint ${mintIndex + 1}: OK -> ${res.txid}`);
+        if (txResult.success) {
+          console.log(`  Mint ${mintIndex + 1}: OK -> ${txResult.txid}`);
           successCount += 1;
           results.push({
             address,
             success: true,
-            txid: res.txid,
+            txid: txResult.txid,
+            attemptsUsed: txResult.attemptsUsed,
           });
-          nonce += 1;
-        }
-      } catch (error) {
-        console.log(`  Mint ${mintIndex + 1}: ERROR -> ${error.message}`);
+          nonce = txResult.nextNonce;
+        } else {
+          console.log(`  Mint ${mintIndex + 1}: ERROR -> ${txResult.error}`);
         failCount += 1;
         results.push({
           address,
           success: false,
-          error: error.message,
+            error: txResult.error,
+            attemptsUsed: txResult.attemptsUsed,
         });
+
+          try {
+            nonce = await getAccountNonce(address);
+          } catch (_nonceRefreshError) {
+            // Keep best-effort nonce progression for next attempt.
+          }
       }
 
       const isLastWallet = i === selectedWallets.length - 1;
