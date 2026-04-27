@@ -46,6 +46,11 @@ npm run dev
 
 Visit http://localhost:3000
 
+## Contributor Docs
+
+- [Contributing Guide](docs/CONTRIBUTING.md)
+- [Batch Operations Runbook](docs/BATCH_OPERATIONS_RUNBOOK.md)
+
 ## Dashboard Notes
 
 - The frontend reads contract data from Hiro mainnet endpoints by default.
@@ -129,6 +134,12 @@ node multi-wallet-mint.js --wallet-file /path/to/wallets.json
 
 # Limit wallet range / repeat mints per wallet
 WALLET_LIMIT=10 START_INDEX=0 MINTS_PER_WALLET=1 npm run mint:multi
+
+# Retry only addresses that failed in a previous report
+node multi-wallet-mint.js --wallet-file ./wallets.json --retry-report ./multi-wallet-mint-report-YYYY-MM-DDTHH-MM-SS.json --only-failed
+
+# Marketplace rerun from previous failed report
+node multi-wallet-marketplace.js --wallet-file ./wallets.json --retry-report ./multi-wallet-marketplace-report-YYYY-MM-DDTHH-MM-SS.json --only-failed
 ```
 
 ## License
