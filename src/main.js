@@ -309,6 +309,26 @@ function toggleTheme() {
   addActivity('Theme', `Switched dashboard theme to ${next}.`);
 }
 
+function setReducedMotion(enabled) {
+  document.body.classList.toggle('reduced-motion', enabled);
+  localStorage.setItem(MOTION_KEY, enabled ? '1' : '0');
+  if (elements.motionToggleBtn) {
+    elements.motionToggleBtn.textContent = enabled ? 'Motion Reduced' : 'Reduce Motion';
+  }
+}
+
+function initMotionPreference() {
+  const persisted = localStorage.getItem(MOTION_KEY);
+  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  setReducedMotion(persisted ? persisted === '1' : prefersReduced);
+}
+
+function toggleMotionPreference() {
+  const enabled = !document.body.classList.contains('reduced-motion');
+  setReducedMotion(enabled);
+  addActivity('Theme', `Reduced motion ${enabled ? 'enabled' : 'disabled'}.`);
+}
+
 function showStatus(message, type = 'info', { persist = false } = {}) {
   if (!elements.status) return;
 
