@@ -404,6 +404,37 @@ function runActiveCommand() {
   addActivity('Refresh', `Command executed: ${active.label}.`);
 }
 
+async function installApp() {
+  if (!state.deferredInstallPrompt) {
+    showStatus('Install prompt is not available on this browser yet.', 'error', { persist: true });
+    return;
+  }
+
+  state.deferredInstallPrompt.prompt();
+  const choice = await state.deferredInstallPrompt.userChoice;
+  if (choice?.outcome === 'accepted') {
+    showStatus('App install started.', 'success');
+    addActivity('Wallet', 'Installed dashboard as an app.');
+  }
+
+  state.deferredInstallPrompt = null;
+  elements.installAppBtn?.classList.add('hidden');
+}
+
+function bindInstallPrompt() {
+  window.addEventListener('beforeinstallprompt', (event) => {
+    event.preventDefault();
+    state.deferredInstallPrompt = event;
+    elements.installAppBtn?.classList.remove('hidden');
+  });
+
+  window.addEventListener('appinstalled', () => {
+    elements.installAppBtn?.classList.add('hidden');
+    state.deferredInstallPrompt = null;
+    showStatus('Dashboard installed successfully.', 'success');
+  });
+}
+
 function setConnectedState(connected) {
   if (!elements.notConnected || !elements.connected) return;
 
@@ -1240,6 +1271,7 @@ function bindEvents() {
     elements.marketSummary?.scrollIntoView({ behavior: 'smooth', block: 'start' });
   });
   elements.commandCenterBtn?.addEventListener('click', openCommandModal);
+  elements.installAppBtn?.addEventListener('click', installApp);
   elements.commandCloseBtn?.addEventListener('click', closeCommandModal);
   elements.commandModal?.addEventListener('click', (event) => {
     const target = event.target;
@@ -1372,6 +1404,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   initAppKit();
   applyPersistedPreferences();
   bindEvents();
+  bindInstallPrompt();
   renderActivityFeed();
   setWalletSignals();
   renderMintDesk();
