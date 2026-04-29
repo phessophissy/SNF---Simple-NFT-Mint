@@ -1298,6 +1298,8 @@ function bindEvents() {
   elements.heroMarketBtn?.addEventListener('click', () => {
     elements.marketSummary?.scrollIntoView({ behavior: 'smooth', block: 'start' });
   });
+  elements.focusModeBtn?.addEventListener('click', toggleFocusMode);
+  elements.exportSnapshotBtn?.addEventListener('click', exportSnapshot);
   elements.commandCenterBtn?.addEventListener('click', openCommandModal);
   elements.installAppBtn?.addEventListener('click', installApp);
   elements.commandCloseBtn?.addEventListener('click', closeCommandModal);
