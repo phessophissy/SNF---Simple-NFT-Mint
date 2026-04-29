@@ -594,6 +594,21 @@ function renderMarketStrategy() {
   elements.coverageNote.textContent = `${state.marketListings.length.toLocaleString()} listings scanned across ${CONFIG.MARKET_SCAN_LIMIT} recent tokens`;
 }
 
+function renderMarketDepth() {
+  if (!state.marketListings.length || !state.marketInsights?.bestAskMicroStx) {
+    elements.marketDepthLabel.textContent = 'Waiting for listings';
+    elements.marketDepthDetail.textContent = 'Refresh to derive spread and seller concentration.';
+    return;
+  }
+
+  const prices = state.marketListings.map((listing) => listing.priceMicroStx).sort((a, b) => a - b);
+  const best = prices[0];
+  const second = prices[1] ?? prices[0];
+  const spread = microToStx(second - best);
+  elements.marketDepthLabel.textContent = `${state.marketInsights.sellers} sellers | spread ${spread.toFixed(4)} STX`;
+  elements.marketDepthDetail.textContent = `${state.marketListings.length} asks tracked, floor at ${formatStxFromMicro(best)}.`;
+}
+
 function updateMintProgress(mintedCount) {
   const safe = Math.max(0, Number(mintedCount) || 0);
   const ratio = Math.min(100, (safe / CONFIG.MINT_CAP) * 100);
@@ -905,6 +920,7 @@ async function fetchRecentListings(latestMintedCount, { silent = false } = {}) {
   renderPortfolioSummary();
   renderPriceLab();
   renderMarketStrategy();
+  renderMarketDepth();
   renderMarketListings();
 }
 
@@ -1441,6 +1457,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   renderNFTList();
   renderPriceLab();
   renderMarketStrategy();
+  renderMarketDepth();
   renderMarketListings();
   startWorldClock();
   setConnectivityState(navigator.onLine);
