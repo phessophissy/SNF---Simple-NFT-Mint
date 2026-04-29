@@ -7,6 +7,7 @@ export const elements = {
   heroConnectBtn: document.getElementById('hero-connect-btn'),
   heroMarketBtn: document.getElementById('hero-market-btn'),
   commandCenterBtn: document.getElementById('command-center-btn'),
+  motionToggleBtn: document.getElementById('motion-toggle-btn'),
   installAppBtn: document.getElementById('install-app-btn'),
   commandModal: document.getElementById('command-modal'),
   commandCloseBtn: document.getElementById('command-close-btn'),
