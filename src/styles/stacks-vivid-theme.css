@@ -607,6 +607,32 @@ h1 {
   flex-wrap: wrap;
 }
 
+.market-regime-chip {
+  display: inline-flex;
+  width: fit-content;
+  padding: 8px 12px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--text-soft);
+  font-size: 0.85rem;
+}
+
+.market-regime-chip[data-regime='heated'] {
+  color: var(--warning);
+  border-color: color-mix(in oklab, var(--warning), transparent 50%);
+}
+
+.market-regime-chip[data-regime='tight'] {
+  color: var(--ok);
+  border-color: color-mix(in oklab, var(--ok), transparent 50%);
+}
+
+.market-regime-chip[data-regime='premium'] {
+  color: var(--accent-1);
+  border-color: color-mix(in oklab, var(--accent-1), transparent 50%);
+}
+
 body.focus-mode .trust-bar,
 body.focus-mode .insight-ribbon,
 body.focus-mode .global-pulse {
