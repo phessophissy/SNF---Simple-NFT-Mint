@@ -702,10 +702,13 @@ async function fetchStxPrice() {
     elements.stxPrice.textContent = `$${usd.toFixed(3)}`;
     state.stxQuote = usd;
     renderMintDesk();
+    elements.globalTrendLabel.textContent = `$${usd.toFixed(3)} STX`;
     if (typeof change === 'number') {
       elements.stxPriceUpdated.textContent = `${change >= 0 ? '+' : ''}${change.toFixed(2)}% (24h)`;
+      elements.globalTrendDetail.textContent = `${change >= 0 ? '+' : ''}${change.toFixed(2)}% over 24h`;
     } else {
       elements.stxPriceUpdated.textContent = '24h trend unavailable';
+      elements.globalTrendDetail.textContent = '24h trend unavailable';
     }
 
     if (updatedAt) {
@@ -716,6 +719,8 @@ async function fetchStxPrice() {
     state.stxQuote = null;
     elements.stxPrice.textContent = '--';
     elements.stxPriceUpdated.textContent = 'Quote unavailable';
+    elements.globalTrendLabel.textContent = 'Quote unavailable';
+    elements.globalTrendDetail.textContent = 'STX market pulse unavailable.';
     renderMintDesk();
   }
 }
