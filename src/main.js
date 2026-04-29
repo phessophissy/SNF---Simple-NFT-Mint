@@ -952,6 +952,16 @@ function getSortedListings() {
     );
   });
 
+  if (state.marketFilterMode === 'floor' && state.marketInsights?.bestAskMicroStx) {
+    const threshold = state.marketInsights.bestAskMicroStx + 2_000;
+    listings = listings.filter((listing) => listing.priceMicroStx <= threshold);
+  } else if (state.marketFilterMode === 'your' && state.userAddress) {
+    listings = listings.filter((listing) => listing.seller === state.userAddress);
+  } else if (state.marketFilterMode === 'premium' && state.marketInsights?.bestAskMicroStx) {
+    const threshold = state.marketInsights.bestAskMicroStx + 10_000;
+    listings = listings.filter((listing) => listing.priceMicroStx >= threshold);
+  }
+
   if (sort === 'price-asc') {
     listings = listings.sort((a, b) => a.priceMicroStx - b.priceMicroStx);
   } else if (sort === 'price-desc') {
@@ -1391,6 +1401,13 @@ function bindEvents() {
   elements.marketSort?.addEventListener('change', () => {
     renderMarketListings();
     savePreferences(getPreferences());
+  });
+  elements.marketFilterModes.forEach((button) => {
+    button.addEventListener('click', () => {
+      state.marketFilterMode = button.dataset.marketFilterMode || 'all';
+      elements.marketFilterModes.forEach((item) => item.classList.toggle('is-active', item === button));
+      renderMarketListings();
+    });
   });
   elements.defaultListPrice?.addEventListener('change', () => savePreferences(getPreferences()));
   elements.priceLabInput?.addEventListener('input', () => {
