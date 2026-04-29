@@ -1177,6 +1177,51 @@ function bindEvents() {
   elements.heroMarketBtn?.addEventListener('click', () => {
     elements.marketSummary?.scrollIntoView({ behavior: 'smooth', block: 'start' });
   });
+  elements.commandCenterBtn?.addEventListener('click', openCommandModal);
+  elements.commandCloseBtn?.addEventListener('click', closeCommandModal);
+  elements.commandModal?.addEventListener('click', (event) => {
+    const target = event.target;
+    if (target instanceof HTMLElement && target.dataset.commandClose === 'true') {
+      closeCommandModal();
+    }
+  });
+  elements.commandSearchInput?.addEventListener('input', () => {
+    state.commandIndex = 0;
+    renderCommandResults();
+  });
+  elements.commandSearchInput?.addEventListener('keydown', (event) => {
+    const query = elements.commandSearchInput?.value?.trim().toLowerCase() || '';
+    const visibleCommands = getCommandCatalog().filter((command) => {
+      if (!query) return true;
+      return `${command.label} ${command.description}`.toLowerCase().includes(query);
+    });
+    if (!visibleCommands.length) return;
+
+    if (event.key === 'ArrowDown') {
+      event.preventDefault();
+      state.commandIndex = (state.commandIndex + 1) % visibleCommands.length;
+      renderCommandResults();
+      return;
+    }
+
+    if (event.key === 'ArrowUp') {
+      event.preventDefault();
+      state.commandIndex = (state.commandIndex - 1 + visibleCommands.length) % visibleCommands.length;
+      renderCommandResults();
+      return;
+    }
+
+    if (event.key === 'Enter') {
+      event.preventDefault();
+      runActiveCommand();
+      return;
+    }
+
+    if (event.key === 'Escape') {
+      event.preventDefault();
+      closeCommandModal();
+    }
+  });
   elements.nftFilter?.addEventListener('input', renderNFTList);
   elements.marketFilter?.addEventListener('input', renderMarketListings);
   elements.activityFilters.forEach((button) => {
@@ -1225,6 +1270,22 @@ function bindEvents() {
     const enabled = Boolean(event.target.checked);
     setAutoRefresh(enabled);
     savePreferences(getPreferences());
+  });
+  document.addEventListener('keydown', (event) => {
+    const hotkey = (event.ctrlKey || event.metaKey) && event.key.toLowerCase() === 'k';
+    if (hotkey) {
+      event.preventDefault();
+      if (state.commandModalOpen) {
+        closeCommandModal();
+      } else {
+        openCommandModal();
+      }
+      return;
+    }
+
+    if (event.key === 'Escape' && state.commandModalOpen) {
+      closeCommandModal();
+    }
   });
 }
 
