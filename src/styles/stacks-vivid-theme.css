@@ -572,6 +572,23 @@ h1 {
   margin-bottom: 14px;
 }
 
+.session-strip {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.session-card {
+  padding: 14px 16px;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.04);
+  box-shadow: var(--shadow-soft);
+  display: grid;
+  gap: 8px;
+}
+
 .operator-card {
   padding: 16px 18px;
   border-radius: var(--radius-lg);
@@ -1110,6 +1127,7 @@ body.focus-mode .global-pulse {
   .global-pulse,
   .insight-ribbon,
   .operator-strip,
+  .session-strip,
   .hero-grid,
   .dashboard-grid,
   .lower-grid,
