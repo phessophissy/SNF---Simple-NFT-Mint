@@ -5,7 +5,7 @@ import { AppConfig, UserSession, openContractCall, showConnect } from '@stacks/c
 import { cvToJSON, deserializeCV, uintCV } from '@stacks/transactions';
 import { STACKS_MAINNET, STACKS_TESTNET } from '@stacks/network';
 import { CONFIG } from './config/app-config.js';
-import { ACTIVITY_KEY, PREFERENCES_KEY, THEME_KEY } from './config/storage-keys.js';
+import { ACTIVITY_KEY, MOTION_KEY, PREFERENCES_KEY, THEME_KEY } from './config/storage-keys.js';
 import { state } from './state/app-state.js';
 import { elements } from './ui/elements.js';
 
