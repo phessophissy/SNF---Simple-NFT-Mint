@@ -129,6 +129,29 @@ function renderWorldClocks() {
     .join('');
 }
 
+function formatUptime(ms) {
+  const totalSeconds = Math.max(Math.floor(ms / 1000), 0);
+  const hours = String(Math.floor(totalSeconds / 3600)).padStart(2, '0');
+  const minutes = String(Math.floor((totalSeconds % 3600) / 60)).padStart(2, '0');
+  const seconds = String(totalSeconds % 60).padStart(2, '0');
+  return `${hours}:${minutes}:${seconds}`;
+}
+
+function renderSessionTelemetry() {
+  elements.sessionUptimeLabel.textContent = formatUptime(Date.now() - state.sessionStartedAt);
+  const latest = loadActivity()[0];
+  elements.lastActivityLabel.textContent = latest ? `${latest.type}: ${latest.message}` : 'Waiting for first action';
+  elements.refreshModeLabel.textContent = elements.autoRefresh?.checked ? 'Auto' : 'Manual';
+}
+
+function startSessionTelemetry() {
+  renderSessionTelemetry();
+  if (state.sessionTimer) {
+    clearInterval(state.sessionTimer);
+  }
+  state.sessionTimer = setInterval(renderSessionTelemetry, 1000);
+}
+
 function startWorldClock() {
   renderWorldClocks();
   if (state.worldClockTimer) {
@@ -227,6 +250,7 @@ function addActivity(type, message, txId = null) {
   });
   saveActivity(activity);
   renderActivityFeed();
+  renderSessionTelemetry();
 }
 
 function renderActivityFeed() {
@@ -934,6 +958,7 @@ async function fetchRecentListings(latestMintedCount, { silent = false } = {}) {
   renderMarketStrategy();
   renderMarketDepth();
   renderMarketListings();
+  startSessionTelemetry();
 }
 
 function serializeUint(value) {
