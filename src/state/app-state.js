@@ -14,4 +14,5 @@ export const state = {
   commandIndex: 0,
   deferredInstallPrompt: null,
   isOffline: false,
+  worldClockTimer: null,
 };
