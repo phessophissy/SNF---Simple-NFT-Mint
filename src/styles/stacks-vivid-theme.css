@@ -716,6 +716,13 @@ body.focus-mode .global-pulse {
   margin-bottom: 16px;
 }
 
+.market-quick-filters {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 16px;
+}
+
 .portfolio-summary {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
