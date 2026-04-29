@@ -148,6 +148,34 @@ function setConnectivityState(online) {
   }
 }
 
+function toggleFocusMode() {
+  const enabled = document.body.classList.toggle('focus-mode');
+  elements.focusModeLabel.textContent = enabled ? 'Focus enabled' : 'Standard';
+  addActivity('Theme', `Focus mode ${enabled ? 'enabled' : 'disabled'}.`);
+}
+
+function exportSnapshot() {
+  const snapshot = {
+    exportedAt: new Date().toISOString(),
+    network: CONFIG.NETWORK,
+    wallet: state.userAddress,
+    minted: elements.minted?.textContent || '0',
+    listingsTracked: state.marketListings.length,
+    marketInsights: state.marketInsights,
+    stxQuote: state.stxQuote,
+  };
+
+  const blob = new Blob([JSON.stringify(snapshot, null, 2)], { type: 'application/json' });
+  const url = URL.createObjectURL(blob);
+  const anchor = document.createElement('a');
+  anchor.href = url;
+  anchor.download = `studio-snapshot-${new Date().toISOString().replace(/[:.]/g, '-')}.json`;
+  anchor.click();
+  URL.revokeObjectURL(url);
+  showStatus('Snapshot exported.', 'success');
+  addActivity('Refresh', 'Exported dashboard snapshot.');
+}
+
 function parseJsonStorage(key, fallback) {
   try {
     const raw = localStorage.getItem(key);
