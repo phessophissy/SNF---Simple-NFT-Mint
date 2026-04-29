@@ -40,6 +40,17 @@
         </div>
       </header>
 
+      <section class="global-ops reveal" aria-label="Global operations">
+        <div class="global-ops-copy">
+          <p class="eyebrow">Global Ops</p>
+          <h2>Command center for worldwide trading windows</h2>
+        </div>
+        <div class="global-ops-actions">
+          <button id="command-center-btn" class="btn btn-secondary" type="button">Open Command Center</button>
+          <button id="install-app-btn" class="btn btn-secondary hidden" type="button">Install App</button>
+        </div>
+      </section>
+
       <section class="trust-bar reveal" aria-label="Studio trust indicators">
         <div class="trust-pill">
           <span class="trust-label">Network</span>
@@ -416,6 +427,22 @@
         </p>
       </footer>
     </main>
+
+    <div id="command-modal" class="command-modal hidden" aria-hidden="true">
+      <div class="command-backdrop" data-command-close="true"></div>
+      <section class="command-panel" role="dialog" aria-modal="true" aria-labelledby="command-panel-title">
+        <div class="command-panel-head">
+          <h2 id="command-panel-title">Command Center</h2>
+          <button id="command-close-btn" class="chip-btn" type="button">Close</button>
+        </div>
+        <label class="portfolio-filter" for="command-search-input">
+          <span>Quick action</span>
+          <input id="command-search-input" type="text" placeholder="Type: refresh, mint, theme, market, export..." />
+        </label>
+        <ul id="command-results" class="command-results" role="listbox" aria-label="Available commands"></ul>
+        <p class="panel-note">Keyboard: Ctrl/Cmd + K opens command center.</p>
+      </section>
+    </div>
 
     <script type="module" src="/src/main.js"></script>
   </body>
