@@ -310,6 +310,17 @@ function renderCommandResults() {
       }"><strong>${command.label}</strong><span>${command.description}</span></li>`;
     })
     .join('');
+
+  elements.commandResults.querySelectorAll('[data-command-id]').forEach((node, index) => {
+    node.addEventListener('mouseenter', () => {
+      state.commandIndex = index;
+      renderCommandResults();
+    });
+    node.addEventListener('click', () => {
+      state.commandIndex = index;
+      runActiveCommand();
+    });
+  });
 }
 
 function openCommandModal() {
