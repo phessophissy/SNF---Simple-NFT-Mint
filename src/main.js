@@ -463,6 +463,18 @@ function bindInstallPrompt() {
   });
 }
 
+async function registerServiceWorker() {
+  if (!('serviceWorker' in navigator)) {
+    return;
+  }
+
+  try {
+    await navigator.serviceWorker.register('/sw.js');
+  } catch (error) {
+    console.warn('Service worker registration failed:', error);
+  }
+}
+
 function setConnectedState(connected) {
   if (!elements.notConnected || !elements.connected) return;
 
@@ -1451,6 +1463,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   applyPersistedPreferences();
   bindEvents();
   bindInstallPrompt();
+  registerServiceWorker();
   renderActivityFeed();
   setWalletSignals();
   renderMintDesk();
