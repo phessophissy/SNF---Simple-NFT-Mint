@@ -1,4 +1,5 @@
 export const state = {
+  sessionStartedAt: Date.now(),
   userAddress: null,
   userNFTs: [],
   marketListings: [],
@@ -16,4 +17,5 @@ export const state = {
   deferredInstallPrompt: null,
   isOffline: false,
   worldClockTimer: null,
+  sessionTimer: null,
 };
