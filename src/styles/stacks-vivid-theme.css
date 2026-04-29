@@ -565,6 +565,37 @@ h1 {
   margin-bottom: 14px;
 }
 
+.operator-strip {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.operator-card {
+  padding: 16px 18px;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--line);
+  background:
+    radial-gradient(circle at top left, color-mix(in oklab, var(--accent-3), transparent 86%), transparent 40%),
+    var(--surface);
+  box-shadow: var(--shadow-soft);
+  display: grid;
+  gap: 10px;
+}
+
+.operator-actions {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+body.focus-mode .trust-bar,
+body.focus-mode .insight-ribbon,
+body.focus-mode .global-pulse {
+  opacity: 0.55;
+}
+
 .insight-chip-card {
   padding: 16px 18px;
   border-radius: var(--radius-lg);
@@ -1071,6 +1102,7 @@ h1 {
   .trust-bar,
   .global-pulse,
   .insight-ribbon,
+  .operator-strip,
   .hero-grid,
   .dashboard-grid,
   .lower-grid,
