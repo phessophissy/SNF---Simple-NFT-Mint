@@ -106,42 +106,6 @@ npm run build
 npm run preview
 ```
 
-## Multi-Wallet Mint Script
-
-Use the bundled multi-wallet script to mint from your pre-generated wallets in:
-`./wallets.json`
-
-### Dry run (recommended first)
-
-```bash
-npm run mint:multi:dry
-```
-
-### Run actual mints
-
-```bash
-npm run mint:multi
-```
-
-### Useful overrides
-
-```bash
-# Mint from testnet
-NETWORK=testnet npm run mint:multi
-
-# Mint from a different wallet file
-node multi-wallet-mint.js --wallet-file /path/to/wallets.json
-
-# Limit wallet range / repeat mints per wallet
-WALLET_LIMIT=10 START_INDEX=0 MINTS_PER_WALLET=1 npm run mint:multi
-
-# Retry only addresses that failed in a previous report
-node multi-wallet-mint.js --wallet-file ./wallets.json --retry-report ./multi-wallet-mint-report-YYYY-MM-DDTHH-MM-SS.json --only-failed
-
-# Marketplace rerun from previous failed report
-node multi-wallet-marketplace.js --wallet-file ./wallets.json --retry-report ./multi-wallet-marketplace-report-YYYY-MM-DDTHH-MM-SS.json --only-failed
-```
-
 ## License
 
 ISC
