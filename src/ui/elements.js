@@ -45,6 +45,7 @@ export const elements = {
   focusModeLabel: document.getElementById('focus-mode-label'),
   marketDepthLabel: document.getElementById('market-depth-label'),
   marketDepthDetail: document.getElementById('market-depth-detail'),
+  marketRegimeLabel: document.getElementById('market-regime-label'),
   sessionUptimeLabel: document.getElementById('session-uptime-label'),
   lastActivityLabel: document.getElementById('last-activity-label'),
   refreshModeLabel: document.getElementById('refresh-mode-label'),
