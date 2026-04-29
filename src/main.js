@@ -248,6 +248,107 @@ function hideStatus() {
   elements.status?.classList.add('hidden');
 }
 
+function getCommandCatalog() {
+  return [
+    {
+      id: 'refresh',
+      label: 'Refresh dashboard',
+      description: 'Pull latest mint, market, and network data.',
+      run: () => refreshDashboard({ withStatus: true }),
+    },
+    {
+      id: 'mint',
+      label: 'Mint one NFT',
+      description: 'Open wallet approval for minting.',
+      run: () => mintNFT(),
+    },
+    {
+      id: 'theme',
+      label: 'Toggle theme',
+      description: 'Switch between solar and aurora themes.',
+      run: () => toggleTheme(),
+    },
+    {
+      id: 'market',
+      label: 'Jump to market panel',
+      description: 'Scroll to recent marketplace listings.',
+      run: () => elements.marketSummary?.scrollIntoView({ behavior: 'smooth', block: 'start' }),
+    },
+    {
+      id: 'copy-address',
+      label: 'Copy wallet address',
+      description: 'Copy connected wallet address to clipboard.',
+      run: () => copyAddress(),
+    },
+  ];
+}
+
+function renderCommandResults() {
+  if (!elements.commandResults) return;
+
+  const query = elements.commandSearchInput?.value?.trim().toLowerCase() || '';
+  const commands = getCommandCatalog().filter((command) => {
+    if (!query) return true;
+    return `${command.label} ${command.description}`.toLowerCase().includes(query);
+  });
+
+  if (!commands.length) {
+    state.commandIndex = 0;
+    elements.commandResults.innerHTML = '<li><strong>No command found</strong><span>Try another keyword.</span></li>';
+    return;
+  }
+
+  if (state.commandIndex >= commands.length) {
+    state.commandIndex = 0;
+  }
+
+  elements.commandResults.innerHTML = commands
+    .map((command, index) => {
+      const isActive = index === state.commandIndex;
+      return `<li class="${isActive ? 'is-active' : ''}" data-command-id="${command.id}" role="option" aria-selected="${
+        isActive ? 'true' : 'false'
+      }"><strong>${command.label}</strong><span>${command.description}</span></li>`;
+    })
+    .join('');
+}
+
+function openCommandModal() {
+  if (!elements.commandModal) return;
+  state.commandModalOpen = true;
+  state.commandIndex = 0;
+  elements.commandModal.classList.remove('hidden');
+  elements.commandModal.setAttribute('aria-hidden', 'false');
+  renderCommandResults();
+  window.setTimeout(() => {
+    elements.commandSearchInput?.focus();
+  }, 0);
+}
+
+function closeCommandModal() {
+  if (!elements.commandModal) return;
+  state.commandModalOpen = false;
+  elements.commandModal.classList.add('hidden');
+  elements.commandModal.setAttribute('aria-hidden', 'true');
+  if (elements.commandSearchInput) {
+    elements.commandSearchInput.value = '';
+  }
+}
+
+function runActiveCommand() {
+  const query = elements.commandSearchInput?.value?.trim().toLowerCase() || '';
+  const commands = getCommandCatalog().filter((command) => {
+    if (!query) return true;
+    return `${command.label} ${command.description}`.toLowerCase().includes(query);
+  });
+
+  const active = commands[state.commandIndex];
+  if (!active) return;
+
+  closeCommandModal();
+  active.run();
+  addActivity('Refresh', `Command executed: ${active.label}.`);
+}
+
 function setConnectedState(connected) {
   if (!elements.notConnected || !elements.connected) return;
 
