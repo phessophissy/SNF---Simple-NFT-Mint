@@ -1,0 +1,21 @@
+{
+  "name": "Simple NFT Mint Studio",
+  "short_name": "SNF Studio",
+  "description": "Stacks mainnet dashboard for minting and market operations.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#07111f",
+  "theme_color": "#07111f",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    },
+    {
+      "src": "/favicon.ico",
+      "sizes": "48x48 64x64 96x96",
+      "type": "image/x-icon"
+    }
+  ]
+}
