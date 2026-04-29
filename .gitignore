@@ -35,6 +35,8 @@ mnemonic*
 deploy-contract.js
 mint-script.js
 .vercel
+multi-wallet-mint.js
+multi-wallet-marketplace.js
 
 # Marketplace scripts (contain wallet logic)
 bulk-mint.js
