@@ -104,6 +104,50 @@ function formatRelativeTime(dateValue) {
   }).format(date);
 }
 
+function formatClock(zone) {
+  return new Intl.DateTimeFormat('en-US', {
+    hour: '2-digit',
+    minute: '2-digit',
+    second: '2-digit',
+    hour12: false,
+    timeZone: zone,
+  }).format(new Date());
+}
+
+function renderWorldClocks() {
+  if (!elements.worldClocks) return;
+
+  const zones = [
+    { label: 'New York', zone: 'America/New_York' },
+    { label: 'London', zone: 'Europe/London' },
+    { label: 'Tokyo', zone: 'Asia/Tokyo' },
+    { label: 'Lagos', zone: 'Africa/Lagos' },
+  ];
+
+  elements.worldClocks.innerHTML = zones
+    .map((item) => `<div class="clock-row"><span>${item.label}</span><span>${formatClock(item.zone)}</span></div>`)
+    .join('');
+}
+
+function startWorldClock() {
+  renderWorldClocks();
+  if (state.worldClockTimer) {
+    clearInterval(state.worldClockTimer);
+  }
+  state.worldClockTimer = setInterval(renderWorldClocks, 1000);
+}
+
+function setConnectivityState(online) {
+  state.isOffline = !online;
+  if (online) {
+    elements.connectionStatusLabel.textContent = 'Online';
+    elements.connectionStatusDetail.textContent = 'Live endpoints reachable.';
+  } else {
+    elements.connectionStatusLabel.textContent = 'Offline mode';
+    elements.connectionStatusDetail.textContent = 'Network disconnected. Cached dashboard view only.';
+  }
+}
+
 function parseJsonStorage(key, fallback) {
   try {
     const raw = localStorage.getItem(key);
