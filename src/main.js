@@ -654,6 +654,8 @@ function renderMarketDepth() {
   if (!state.marketListings.length || !state.marketInsights?.bestAskMicroStx) {
     elements.marketDepthLabel.textContent = 'Waiting for listings';
     elements.marketDepthDetail.textContent = 'Refresh to derive spread and seller concentration.';
+    elements.marketRegimeLabel.textContent = 'Neutral';
+    elements.marketRegimeLabel.dataset.regime = 'neutral';
     return;
   }
 
@@ -663,6 +665,17 @@ function renderMarketDepth() {
   const spread = microToStx(second - best);
   elements.marketDepthLabel.textContent = `${state.marketInsights.sellers} sellers | spread ${spread.toFixed(4)} STX`;
   elements.marketDepthDetail.textContent = `${state.marketListings.length} asks tracked, floor at ${formatStxFromMicro(best)}.`;
+
+  if (state.marketInsights.sellers >= 8 && spread <= 0.002) {
+    elements.marketRegimeLabel.textContent = 'Tight market';
+    elements.marketRegimeLabel.dataset.regime = 'tight';
+  } else if (spread >= 0.01) {
+    elements.marketRegimeLabel.textContent = 'Premium ladder';
+    elements.marketRegimeLabel.dataset.regime = 'premium';
+  } else {
+    elements.marketRegimeLabel.textContent = 'Heated rotation';
+    elements.marketRegimeLabel.dataset.regime = 'heated';
+  }
 }
 
 function updateMintProgress(mintedCount) {
