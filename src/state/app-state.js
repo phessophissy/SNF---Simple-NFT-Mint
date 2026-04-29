@@ -10,4 +10,8 @@ export const state = {
   stxQuote: null,
   marketInsights: null,
   activityFilter: 'all',
+  commandModalOpen: false,
+  commandIndex: 0,
+  deferredInstallPrompt: null,
+  isOffline: false,
 };
