@@ -671,11 +671,13 @@ async function fetchNetworkStatus() {
     elements.networkStatus.textContent = 'Online';
     elements.networkStatus.style.color = 'var(--ok)';
     elements.networkHeight.textContent = `Tip: ${tip}`;
+    setConnectivityState(true);
   } catch (error) {
     console.error('Failed to fetch network status:', error);
     elements.networkStatus.textContent = 'Degraded';
     elements.networkStatus.style.color = 'var(--warning)';
     elements.networkHeight.textContent = 'Tip unavailable';
+    setConnectivityState(false);
   }
 }
 
@@ -1372,6 +1374,11 @@ document.addEventListener('DOMContentLoaded', async () => {
   renderPriceLab();
   renderMarketStrategy();
   renderMarketListings();
+  startWorldClock();
+  setConnectivityState(navigator.onLine);
+
+  window.addEventListener('online', () => setConnectivityState(true));
+  window.addEventListener('offline', () => setConnectivityState(false));
 
   setAutoRefresh(Boolean(elements.autoRefresh?.checked));
 
