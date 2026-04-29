@@ -17,6 +17,7 @@ export const elements = {
   nftFilter: document.getElementById('nft-filter'),
   marketFilter: document.getElementById('market-filter'),
   marketSort: document.getElementById('market-sort'),
+  marketFilterModes: Array.from(document.querySelectorAll('[data-market-filter-mode]')),
   defaultListPrice: document.getElementById('default-list-price'),
   priceLabInput: document.getElementById('price-lab-input'),
   matchFloorBtn: document.getElementById('match-floor-btn'),
