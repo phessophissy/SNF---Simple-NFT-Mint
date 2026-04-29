@@ -396,6 +396,24 @@ function getCommandCatalog() {
       description: 'Copy connected wallet address to clipboard.',
       run: () => copyAddress(),
     },
+    {
+      id: 'focus-mode',
+      label: 'Toggle focus mode',
+      description: 'Dim secondary chrome for operator focus.',
+      run: () => toggleFocusMode(),
+    },
+    {
+      id: 'export-snapshot',
+      label: 'Export dashboard snapshot',
+      description: 'Download current desk state as JSON.',
+      run: () => exportSnapshot(),
+    },
+    {
+      id: 'motion',
+      label: 'Toggle reduced motion',
+      description: 'Switch animation intensity for accessibility.',
+      run: () => toggleMotionPreference(),
+    },
   ];
 }
 
