@@ -1383,6 +1383,7 @@ function bindEvents() {
   });
   elements.focusModeBtn?.addEventListener('click', toggleFocusMode);
   elements.exportSnapshotBtn?.addEventListener('click', exportSnapshot);
+  elements.motionToggleBtn?.addEventListener('click', toggleMotionPreference);
   elements.commandCenterBtn?.addEventListener('click', openCommandModal);
   elements.installAppBtn?.addEventListener('click', installApp);
   elements.commandCloseBtn?.addEventListener('click', closeCommandModal);
@@ -1521,6 +1522,7 @@ function applyPersistedPreferences() {
 
 document.addEventListener('DOMContentLoaded', async () => {
   initTheme();
+  initMotionPreference();
   initAppKit();
   applyPersistedPreferences();
   bindEvents();
