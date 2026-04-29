@@ -11,12 +11,7 @@
     "test": "vitest run test/smoke.test.js",
     "test:watch": "vitest",
     "test:smoke": "vitest run test/smoke.test.js",
-    "check": "npm run build && npm run test:smoke",
-    "mint": "node mint-script.js",
-    "mint:multi": "node multi-wallet-mint.js",
-    "mint:multi:dry": "node multi-wallet-mint.js --dry-run",
-    "market:multi:list": "node multi-wallet-marketplace.js",
-    "market:multi:list:dry": "node multi-wallet-marketplace.js --dry-run"
+    "check": "npm run build && npm run test:smoke"
   },
   "keywords": [
     "nft",
