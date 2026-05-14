@@ -1,6 +1,8 @@
 export const state = {
   sessionStartedAt: Date.now(),
   userAddress: null,
+  walletConnectInFlight: false,
+  lastWalletError: null,
   userNFTs: [],
   marketListings: [],
   autoRefreshTimer: null,
