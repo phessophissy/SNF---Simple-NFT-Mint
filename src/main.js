@@ -1205,6 +1205,8 @@ async function connectWallet() {
   state.walletConnectInFlight = true;
   state.lastWalletError = null;
   setConnectButtonsBusy(true);
+  elements.walletState.textContent = 'Awaiting wallet approval';
+  elements.walletStateDetail.textContent = 'Approve the connection in your wallet window to continue.';
   showStatus('Opening wallet...', 'info');
 
   try {
@@ -1227,6 +1229,7 @@ async function connectWallet() {
       onCancel: () => {
         state.walletConnectInFlight = false;
         setConnectButtonsBusy(false);
+        setWalletSignals();
         showStatus('Connection canceled.', 'error', { persist: true });
       },
       userSession,
@@ -1236,6 +1239,7 @@ async function connectWallet() {
     state.walletConnectInFlight = false;
     state.lastWalletError = error instanceof Error ? error.message : 'Unknown wallet error';
     setConnectButtonsBusy(false);
+    setWalletSignals();
     const detail = state.lastWalletError ? `<br /><small>${state.lastWalletError}</small>` : '';
     showStatus(`Wallet could not open. Ensure Leather or Xverse is available.${detail}`, 'error', { persist: true });
   }
