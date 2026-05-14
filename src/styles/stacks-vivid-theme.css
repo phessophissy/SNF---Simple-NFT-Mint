@@ -445,6 +445,12 @@ h1 {
   gap: 14px;
 }
 
+.wallet-link-row {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
 .wallet-connect-card h3,
 .wallet-connected h3 {
   font-size: 1.5rem;
