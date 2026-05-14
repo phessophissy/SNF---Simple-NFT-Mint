@@ -355,6 +355,11 @@ function setButtonBusy(button, isBusy, idleLabel, busyLabel) {
   button.disabled = isBusy;
 }
 
+function setConnectButtonsBusy(isBusy) {
+  setButtonBusy(elements.connectBtn, isBusy, 'Connect Wallet', 'Opening Wallet');
+  setButtonBusy(elements.heroConnectBtn, isBusy, 'Connect and Start', 'Opening Wallet');
+}
+
 function hideStatus() {
   if (state.statusTimer) {
     window.clearTimeout(state.statusTimer);
