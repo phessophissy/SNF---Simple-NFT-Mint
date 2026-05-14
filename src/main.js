@@ -1217,11 +1217,11 @@ async function connectWallet() {
       onFinish: async () => {
         const userData = userSession.loadUserData();
         state.userAddress = getAddressFromUserData(userData);
+        state.walletConnectInFlight = false;
+        setConnectButtonsBusy(false);
         setWalletSignals();
         addActivity('Wallet', 'Wallet connected.');
         showStatus('Connected to wallet.', 'success');
-        state.walletConnectInFlight = false;
-        setConnectButtonsBusy(false);
         await refreshDashboard();
       },
       onCancel: () => {
