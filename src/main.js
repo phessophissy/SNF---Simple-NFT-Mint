@@ -1236,7 +1236,8 @@ async function connectWallet() {
     state.walletConnectInFlight = false;
     state.lastWalletError = error instanceof Error ? error.message : 'Unknown wallet error';
     setConnectButtonsBusy(false);
-    showStatus('Wallet could not open. Ensure Leather or Xverse is available.', 'error', { persist: true });
+    const detail = state.lastWalletError ? `<br /><small>${state.lastWalletError}</small>` : '';
+    showStatus(`Wallet could not open. Ensure Leather or Xverse is available.${detail}`, 'error', { persist: true });
   }
 }
 
