@@ -99,6 +99,13 @@ The frontend supports these Stacks wallets:
 - [Leather](https://leather.io/) (formerly Hiro Wallet)
 - [Xverse](https://www.xverse.app/)
 
+### Connect Wallet Troubleshooting
+
+- If the connect modal does not appear, allow popups for your dashboard domain and retry.
+- Make sure one supported wallet is installed and unlocked before clicking Connect Wallet.
+- If a wallet request is already in progress, wait for that wallet window to complete or cancel.
+- On errors, read the wallet status panel for the latest failure detail surfaced by the app.
+
 ## Building for Production
 
 ```bash
