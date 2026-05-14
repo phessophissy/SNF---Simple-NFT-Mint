@@ -965,6 +965,14 @@ body.focus-mode .global-pulse {
   line-height: 1.55;
 }
 
+.status small {
+  display: inline-block;
+  margin-top: 6px;
+  opacity: 0.9;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.76rem;
+}
+
 .status.info {
   color: #d8fbff;
   background: color-mix(in oklab, var(--accent-1), transparent 86%);
