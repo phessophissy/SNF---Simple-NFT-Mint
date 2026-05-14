@@ -549,6 +549,12 @@ function setConnectedState(connected) {
   elements.connected.classList.toggle('hidden', !connected);
 }
 
+function getAddressFromUserData(userData) {
+  const mainnet = userData?.profile?.stxAddress?.mainnet;
+  const testnet = userData?.profile?.stxAddress?.testnet;
+  return CONFIG.NETWORK === 'mainnet' ? mainnet : testnet;
+}
+
 function setWalletSignals() {
   const connected = Boolean(state.userAddress);
   setConnectedState(connected);
