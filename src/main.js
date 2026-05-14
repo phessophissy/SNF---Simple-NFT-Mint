@@ -1609,16 +1609,14 @@ document.addEventListener('DOMContentLoaded', async () => {
 
   if (userSession.isUserSignedIn()) {
     const userData = userSession.loadUserData();
-    state.userAddress =
-      CONFIG.NETWORK === 'mainnet' ? userData.profile.stxAddress.mainnet : userData.profile.stxAddress.testnet;
+    state.userAddress = getAddressFromUserData(userData);
     setWalletSignals();
   }
 
   if (userSession.isSignInPending()) {
     try {
       const userData = await userSession.handlePendingSignIn();
-      state.userAddress =
-        CONFIG.NETWORK === 'mainnet' ? userData.profile.stxAddress.mainnet : userData.profile.stxAddress.testnet;
+      state.userAddress = getAddressFromUserData(userData);
       addActivity('Wallet', 'Wallet sign-in completed.');
       setWalletSignals();
     } catch (error) {
