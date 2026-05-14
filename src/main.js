@@ -1189,35 +1189,55 @@ function setAutoRefresh(enabled) {
 }
 
 async function connectWallet() {
-  setButtonBusy(elements.connectBtn, true, 'Connect Wallet', 'Opening Wallet');
-  setButtonBusy(elements.heroConnectBtn, true, 'Connect and Start', 'Opening Wallet');
+  if (state.walletConnectInFlight) {
+    showStatus('Wallet request already in progress.', 'info');
+    return;
+  }
+
+  if (userSession.isUserSignedIn()) {
+    const userData = userSession.loadUserData();
+    state.userAddress = getAddressFromUserData(userData);
+    setWalletSignals();
+    showStatus('Wallet already connected.', 'success');
+    return;
+  }
+
+  state.walletConnectInFlight = true;
+  state.lastWalletError = null;
+  setConnectButtonsBusy(true);
   showStatus('Opening wallet...', 'info');
 
-  showConnect({
-    appDetails: {
-      name: CONFIG.APP_NAME,
-      icon: CONFIG.APP_ICON,
-    },
-    redirectTo: '/',
-    onFinish: async () => {
-      const userData = userSession.loadUserData();
-      state.userAddress =
-        CONFIG.NETWORK === 'mainnet' ? userData.profile.stxAddress.mainnet : userData.profile.stxAddress.testnet;
-      setWalletSignals();
-      addActivity('Wallet', 'Wallet connected.');
-      showStatus('Connected to wallet.', 'success');
-      setButtonBusy(elements.connectBtn, false, 'Connect Wallet', 'Opening Wallet');
-      setButtonBusy(elements.heroConnectBtn, false, 'Connect and Start', 'Opening Wallet');
-      setWalletSignals();
-      await refreshDashboard();
-    },
-    onCancel: () => {
-      showStatus('Connection canceled.', 'error', { persist: true });
-      setButtonBusy(elements.connectBtn, false, 'Connect Wallet', 'Opening Wallet');
-      setButtonBusy(elements.heroConnectBtn, false, 'Connect and Start', 'Opening Wallet');
-    },
-    userSession,
-  });
+  try {
+    showConnect({
+      appDetails: {
+        name: CONFIG.APP_NAME,
+        icon: CONFIG.APP_ICON,
+      },
+      redirectTo: window.location.pathname || '/',
+      onFinish: async () => {
+        const userData = userSession.loadUserData();
+        state.userAddress = getAddressFromUserData(userData);
+        setWalletSignals();
+        addActivity('Wallet', 'Wallet connected.');
+        showStatus('Connected to wallet.', 'success');
+        state.walletConnectInFlight = false;
+        setConnectButtonsBusy(false);
+        await refreshDashboard();
+      },
+      onCancel: () => {
+        state.walletConnectInFlight = false;
+        setConnectButtonsBusy(false);
+        showStatus('Connection canceled.', 'error', { persist: true });
+      },
+      userSession,
+    });
+  } catch (error) {
+    console.error('Wallet connect failed:', error);
+    state.walletConnectInFlight = false;
+    state.lastWalletError = error instanceof Error ? error.message : 'Unknown wallet error';
+    setConnectButtonsBusy(false);
+    showStatus('Wallet could not open. Ensure Leather or Xverse is available.', 'error', { persist: true });
+  }
 }
 
 function disconnectWallet() {
