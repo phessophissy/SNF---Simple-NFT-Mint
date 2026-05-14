@@ -230,6 +230,12 @@ h1 {
   line-height: 1.65;
 }
 
+.hero-shortcut-hint {
+  margin: 6px 0 0;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
 .topbar-actions {
   display: flex;
   gap: 10px;
