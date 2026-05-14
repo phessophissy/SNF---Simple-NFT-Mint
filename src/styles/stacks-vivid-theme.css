@@ -455,6 +455,11 @@ h1 {
   line-height: 1.6;
 }
 
+.wallet-help {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+}
+
 .wallet-head {
   display: flex;
   align-items: flex-start;
@@ -941,6 +946,7 @@ body.focus-mode .global-pulse {
 }
 
 .status {
+  margin-top: 14px;
   padding: 14px 15px;
   border-radius: var(--radius-md);
   border: 1px solid transparent;
