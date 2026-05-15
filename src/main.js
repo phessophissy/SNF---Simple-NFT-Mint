@@ -1227,7 +1227,7 @@ async function connectWallet() {
 }
 
 function disconnectWallet() {
-  userSession.signUserOut('/');
+  closeStacksWalletConnection();
   state.userAddress = null;
   state.userNFTs = [];
   setWalletSignals();
