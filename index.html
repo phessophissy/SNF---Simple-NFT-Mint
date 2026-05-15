@@ -144,12 +144,19 @@
             <p class="eyebrow">Wallet Access</p>
             <h3>Connect your wallet</h3>
             <p>Use Leather or Xverse to mint, list, and buy on Stacks mainnet.</p>
-            <button id="connect-btn" class="btn btn-primary" type="button">Connect Wallet</button>
+            <button
+              id="connect-btn"
+              class="btn btn-primary wallet-action-btn"
+              type="button"
+              aria-label="Connect Leather, Xverse, or WalletConnect"
+            >
+              Connect Wallet
+            </button>
             <div class="wallet-link-row">
               <a class="btn btn-secondary" href="https://leather.io" target="_blank" rel="noopener noreferrer">Get Leather</a>
               <a class="btn btn-secondary" href="https://www.xverse.app" target="_blank" rel="noopener noreferrer">Get Xverse</a>
             </div>
-            <p class="wallet-help">Tip: if nothing opens, allow popups and retry in this tab.</p>
+            <p class="wallet-help">Opens the Stacks wallet picker. Allow popups if the modal does not appear.</p>
           </div>
 
           <div id="connected" class="wallet-connected hidden">
