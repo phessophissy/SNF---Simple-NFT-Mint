@@ -560,7 +560,8 @@ function setWalletSignals() {
     elements.walletSessionState.textContent = 'Standby';
     elements.walletReadiness.textContent = 'Connect to unlock desk tools';
     elements.heroConnectBtn.textContent = 'Connect and Start';
-    elements.heroConnectBtn.disabled = false;
+    elements.heroConnectBtn.disabled = state.walletConnectInFlight;
+    elements.connectBtn.disabled = state.walletConnectInFlight;
   }
 }
 
