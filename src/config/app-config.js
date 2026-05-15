@@ -7,7 +7,8 @@ export const CONFIG = {
   MINT_PRICE: 1000,
   LIST_FEE: 1300,
   APP_NAME: 'Simple NFT Marketplace',
-  APP_ICON: `${window.location.origin}/favicon.svg`,
+  APP_ICON:
+    typeof window !== 'undefined' ? `${window.location.origin}/favicon.svg` : '/favicon.svg',
   REOWN_PROJECT_ID: '4fb22bec203d094dbec52767e3bcc016',
   WALLET_CONNECT_TIMEOUT_MS: 120000,
   MINT_CAP: 10000,
