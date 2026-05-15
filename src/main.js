@@ -16,7 +16,6 @@ import {
   openStacksWalletConnection,
 } from './wallet/stacks-wallet.js';
 
-
 function getApiUrl() {
   return CONFIG.NETWORK === 'mainnet' ? 'https://api.mainnet.hiro.so' : 'https://api.testnet.hiro.so';
 }
@@ -1268,16 +1267,14 @@ function mintNFT() {
   setButtonBusy(elements.mintBtn, true, 'Mint NFT', 'Awaiting Approval');
   showStatus('Opening wallet approval for mint...', 'info');
 
-  openContractCall({
+  openContractCall(
+    withWalletContractOptions(
+      {
     contractAddress: CONFIG.NFT_CONTRACT_ADDRESS,
     contractName: CONFIG.NFT_CONTRACT_NAME,
     functionName: 'mint',
     functionArgs: [],
     network: getStacksNetwork(),
-    appDetails: {
-      name: CONFIG.APP_NAME,
-      icon: CONFIG.APP_ICON,
-    },
     onFinish: async (data) => {
       const txId = data.txId;
       showStatus(`Mint submitted. <a href="${formatExplorerUrl(txId)}" target="_blank" rel="noopener noreferrer">View on explorer</a>`, 'success');
@@ -1291,8 +1288,10 @@ function mintNFT() {
       showStatus('Mint transaction canceled.', 'error', { persist: true });
       setButtonBusy(elements.mintBtn, false, 'Mint NFT', 'Awaiting Approval');
     },
-    userSession,
-  });
+      },
+      state.userAddress
+    )
+  );
 }
 
 function listNFT(tokenId) {
@@ -1315,16 +1314,14 @@ function listNFT(tokenId) {
 
   showStatus(`Opening wallet approval to list token #${tokenId}...`, 'info');
 
-  openContractCall({
+  openContractCall(
+    withWalletContractOptions(
+      {
     contractAddress: CONFIG.MARKETPLACE_CONTRACT_ADDRESS,
     contractName: CONFIG.MARKETPLACE_CONTRACT_NAME,
     functionName: 'list-nft',
     functionArgs: [uintCV(tokenId), uintCV(priceInMicroStx)],
     network: getStacksNetwork(),
-    appDetails: {
-      name: CONFIG.APP_NAME,
-      icon: CONFIG.APP_ICON,
-    },
     onFinish: (data) => {
       const txId = data.txId;
       showStatus(
@@ -1339,8 +1336,10 @@ function listNFT(tokenId) {
     onCancel: () => {
       showStatus(`Listing for token #${tokenId} canceled.`, 'error', { persist: true });
     },
-    userSession,
-  });
+      },
+      state.userAddress
+    )
+  );
 }
 
 function buyNFT(tokenId) {
@@ -1351,16 +1350,14 @@ function buyNFT(tokenId) {
 
   showStatus(`Opening wallet approval to buy token #${tokenId}...`, 'info');
 
-  openContractCall({
+  openContractCall(
+    withWalletContractOptions(
+      {
     contractAddress: CONFIG.MARKETPLACE_CONTRACT_ADDRESS,
     contractName: CONFIG.MARKETPLACE_CONTRACT_NAME,
     functionName: 'buy-nft',
     functionArgs: [uintCV(tokenId)],
     network: getStacksNetwork(),
-    appDetails: {
-      name: CONFIG.APP_NAME,
-      icon: CONFIG.APP_ICON,
-    },
     onFinish: (data) => {
       const txId = data.txId;
       showStatus(`Purchase submitted. <a href="${formatExplorerUrl(txId)}" target="_blank" rel="noopener noreferrer">View on explorer</a>`, 'success');
@@ -1372,8 +1369,10 @@ function buyNFT(tokenId) {
     onCancel: () => {
       showStatus('Purchase canceled.', 'error', { persist: true });
     },
-    userSession,
-  });
+      },
+      state.userAddress
+    )
+  );
 }
 
 function cancelListing(tokenId) {
@@ -1384,16 +1383,14 @@ function cancelListing(tokenId) {
 
   showStatus(`Opening wallet approval to cancel token #${tokenId} listing...`, 'info');
 
-  openContractCall({
+  openContractCall(
+    withWalletContractOptions(
+      {
     contractAddress: CONFIG.MARKETPLACE_CONTRACT_ADDRESS,
     contractName: CONFIG.MARKETPLACE_CONTRACT_NAME,
     functionName: 'cancel-listing',
     functionArgs: [uintCV(tokenId)],
     network: getStacksNetwork(),
-    appDetails: {
-      name: CONFIG.APP_NAME,
-      icon: CONFIG.APP_ICON,
-    },
     onFinish: (data) => {
       const txId = data.txId;
       showStatus(`Listing canceled. <a href="${formatExplorerUrl(txId)}" target="_blank" rel="noopener noreferrer">View on explorer</a>`, 'success');
@@ -1405,8 +1402,10 @@ function cancelListing(tokenId) {
     onCancel: () => {
       showStatus('Cancel listing request was dismissed.', 'error', { persist: true });
     },
-    userSession,
-  });
+      },
+      state.userAddress
+    )
+  );
 }
 
 async function copyAddress() {
@@ -1423,7 +1422,9 @@ async function copyAddress() {
 }
 
 function bindEvents() {
-  elements.connectBtn?.addEventListener('click', connectWallet);
+  elements.connectBtn?.addEventListener('click', () => {
+    connectWallet();
+  });
   elements.mintBtn?.addEventListener('click', mintNFT);
   elements.disconnectBtn?.addEventListener('click', disconnectWallet);
   elements.copyAddressBtn?.addEventListener('click', copyAddress);
@@ -1431,7 +1432,9 @@ function bindEvents() {
   elements.refreshBtn?.addEventListener('click', () => {
     refreshDashboard({ withStatus: true });
   });
-  elements.heroConnectBtn?.addEventListener('click', connectWallet);
+  elements.heroConnectBtn?.addEventListener('click', () => {
+    connectWallet();
+  });
   elements.heroMarketBtn?.addEventListener('click', () => {
     elements.marketSummary?.scrollIntoView({ behavior: 'smooth', block: 'start' });
   });
@@ -1575,9 +1578,9 @@ function applyPersistedPreferences() {
 }
 
 document.addEventListener('DOMContentLoaded', async () => {
+  resolveElements();
   initTheme();
   initMotionPreference();
-  initAppKit();
   applyPersistedPreferences();
   bindEvents();
   bindInstallPrompt();
@@ -1598,23 +1601,8 @@ document.addEventListener('DOMContentLoaded', async () => {
 
   setAutoRefresh(Boolean(elements.autoRefresh?.checked));
 
-  if (userSession.isUserSignedIn()) {
-    const userData = userSession.loadUserData();
-    state.userAddress = getAddressFromUserData(userData);
-    setWalletSignals();
-  }
-
-  if (userSession.isSignInPending()) {
-    try {
-      const userData = await userSession.handlePendingSignIn();
-      state.userAddress = getAddressFromUserData(userData);
-      addActivity('Wallet', 'Wallet sign-in completed.');
-      setWalletSignals();
-    } catch (error) {
-      console.error('Sign-in completion failed:', error);
-      showStatus('Wallet sign-in could not complete.', 'error', { persist: true });
-    }
-  }
+  syncWalletAddressFromStorage();
+  setWalletSignals();
 
   await refreshDashboard();
 });
