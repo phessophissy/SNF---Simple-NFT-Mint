@@ -93,3 +93,12 @@ export const elements = {
   marketFilterModes: [],
   activityFilters: [],
 };
+
+export function resolveElements() {
+  Object.entries(elementIds).forEach(([key, id]) => {
+    elements[key] = document.getElementById(id);
+  });
+
+  elements.marketFilterModes = Array.from(document.querySelectorAll('[data-market-filter-mode]'));
+  elements.activityFilters = Array.from(document.querySelectorAll('[data-activity-filter]'));
+}
