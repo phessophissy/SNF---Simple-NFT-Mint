@@ -1,7 +1,6 @@
 import './styles/stacks-vivid-theme.css';
 
-import { createAppKit } from '@reown/appkit';
-import { AppConfig, UserSession, openContractCall, showConnect } from '@stacks/connect';
+import { openContractCall } from '@stacks/connect';
 import { cvToJSON, deserializeCV, uintCV } from '@stacks/transactions';
 import { STACKS_MAINNET, STACKS_TESTNET } from '@stacks/network';
 import { CONFIG } from './config/app-config.js';
