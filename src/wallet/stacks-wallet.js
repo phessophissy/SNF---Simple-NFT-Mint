@@ -29,3 +29,32 @@ export function readStoredStacksAddress() {
   return addresses[0]?.address ?? null;
 }
 
+export function getConnectedStacksAddress() {
+  if (!isConnected()) {
+    return null;
+  }
+
+  return readStoredStacksAddress();
+}
+
+export async function openStacksWalletConnection() {
+  const result = await connect(getWalletConnectOptions());
+  const fromResponse = result?.addresses?.[0]?.address;
+  return fromResponse ?? readStoredStacksAddress();
+}
+
+export function closeStacksWalletConnection() {
+  disconnect();
+}
+
+export function createWalletConnectTimeout(onTimeout) {
+  return window.setTimeout(() => {
+    onTimeout();
+  }, CONFIG.WALLET_CONNECT_TIMEOUT_MS);
+}
+
+export function clearWalletConnectTimeout(timerId) {
+  if (timerId) {
+    window.clearTimeout(timerId);
+  }
+}
