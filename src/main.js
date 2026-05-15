@@ -1177,9 +1177,8 @@ async function connectWallet() {
     return;
   }
 
-  if (userSession.isUserSignedIn()) {
-    const userData = userSession.loadUserData();
-    state.userAddress = getAddressFromUserData(userData);
+  syncWalletAddressFromStorage();
+  if (state.userAddress) {
     setWalletSignals();
     showStatus('Wallet already connected.', 'success');
     return;
@@ -1189,42 +1188,41 @@ async function connectWallet() {
   state.lastWalletError = null;
   setConnectButtonsBusy(true);
   elements.walletState.textContent = 'Awaiting wallet approval';
-  elements.walletStateDetail.textContent = 'Approve the connection in your wallet window to continue.';
-  showStatus('Opening wallet...', 'info');
+  elements.walletStateDetail.textContent = 'Choose Leather, Xverse, or WalletConnect in the modal.';
+  showStatus('Opening wallet picker...', 'info');
+
+  const timeoutId = createWalletConnectTimeout(() => {
+    if (!state.walletConnectInFlight) {
+      return;
+    }
+
+    resetWalletConnectUi();
+    setWalletSignals();
+    showStatus('Wallet connection timed out. Allow popups and try again.', 'error', { persist: true });
+  });
 
   try {
-    showConnect({
-      appDetails: {
-        name: CONFIG.APP_NAME,
-        icon: CONFIG.APP_ICON,
-      },
-      redirectTo: window.location.pathname || '/',
-      onFinish: async () => {
-        const userData = userSession.loadUserData();
-        state.userAddress = getAddressFromUserData(userData);
-        state.walletConnectInFlight = false;
-        setConnectButtonsBusy(false);
-        setWalletSignals();
-        addActivity('Wallet', 'Wallet connected.');
-        showStatus('Connected to wallet.', 'success');
-        await refreshDashboard();
-      },
-      onCancel: () => {
-        state.walletConnectInFlight = false;
-        setConnectButtonsBusy(false);
-        setWalletSignals();
-        showStatus('Connection canceled.', 'error', { persist: true });
-      },
-      userSession,
-    });
+    state.userAddress = await openStacksWalletConnection();
+    if (!state.userAddress) {
+      throw new Error('No Stacks address returned from wallet.');
+    }
+
+    setWalletSignals();
+    addActivity('Wallet', 'Wallet connected.');
+    showStatus('Connected to wallet.', 'success');
+    await refreshDashboard();
   } catch (error) {
     console.error('Wallet connect failed:', error);
-    state.walletConnectInFlight = false;
     state.lastWalletError = error instanceof Error ? error.message : 'Unknown wallet error';
-    setConnectButtonsBusy(false);
     setWalletSignals();
     const detail = state.lastWalletError ? `<br /><small>${state.lastWalletError}</small>` : '';
-    showStatus(`Wallet could not open. Ensure Leather or Xverse is available.${detail}`, 'error', { persist: true });
+    showStatus(`Wallet could not connect. Install Leather or Xverse, or use WalletConnect.${detail}`, 'error', {
+      persist: true,
+    });
+  } finally {
+    clearWalletConnectTimeout(timeoutId);
+    resetWalletConnectUi();
+    setWalletSignals();
   }
 }
 
