@@ -528,10 +528,13 @@ function setConnectedState(connected) {
   elements.connected.classList.toggle('hidden', !connected);
 }
 
-function getAddressFromUserData(userData) {
-  const mainnet = userData?.profile?.stxAddress?.mainnet;
-  const testnet = userData?.profile?.stxAddress?.testnet;
-  return CONFIG.NETWORK === 'mainnet' ? mainnet : testnet;
+function syncWalletAddressFromStorage() {
+  state.userAddress = getConnectedStacksAddress();
+}
+
+function resetWalletConnectUi() {
+  state.walletConnectInFlight = false;
+  setConnectButtonsBusy(false);
 }
 
 function setWalletSignals() {
