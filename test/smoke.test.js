@@ -1,4 +1,5 @@
 import { describe, expect, it } from 'vitest';
+import { CONFIG } from '../src/config/app-config.js';
 
 describe('project smoke', () => {
   it('has expected contract names', () => {
@@ -7,6 +8,10 @@ describe('project smoke', () => {
 
     expect(nftContractName).toBe('simple-nft-v4');
     expect(marketplaceContractName).toBe('nft-marketplace-v2');
+  });
+
+  it('targets mainnet in app config', () => {
+    expect(CONFIG.NETWORK).toBe('mainnet');
   });
 
   it('uses valid stx fee constants', () => {
