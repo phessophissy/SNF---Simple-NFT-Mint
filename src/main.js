@@ -16,34 +16,6 @@ import {
   openStacksWalletConnection,
 } from './wallet/stacks-wallet.js';
 
-const appConfig = new AppConfig(['store_write', 'publish_data']);
-const userSession = new UserSession({ appConfig });
-
-let appKit = null;
-
-function initAppKit() {
-  try {
-    appKit = createAppKit({
-      projectId: CONFIG.REOWN_PROJECT_ID,
-      metadata: {
-        name: CONFIG.APP_NAME,
-        description: 'Mint, list, and trade NFTs on Stacks blockchain',
-        url: window.location.origin,
-        icons: [CONFIG.APP_ICON],
-      },
-      themeMode: 'dark',
-      themeVariables: {
-        '--w3m-accent': '#3ae6ff',
-        '--w3m-border-radius-master': '16px',
-      },
-    });
-    if (!appKit) {
-      console.warn('REOWN AppKit did not initialize as expected');
-    }
-  } catch (error) {
-    console.warn('REOWN AppKit init failed, using Stacks Connect flow:', error);
-  }
-}
 
 function getApiUrl() {
   return CONFIG.NETWORK === 'mainnet' ? 'https://api.mainnet.hiro.so' : 'https://api.testnet.hiro.so';
