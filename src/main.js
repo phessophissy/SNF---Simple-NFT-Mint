@@ -357,6 +357,12 @@ function getCommandCatalog() {
       run: () => refreshDashboard({ withStatus: true }),
     },
     {
+      id: 'connect',
+      label: 'Connect wallet',
+      description: 'Open Leather, Xverse, or WalletConnect.',
+      run: () => connectWallet(),
+    },
+    {
       id: 'mint',
       label: 'Mint one NFT',
       description: 'Open wallet approval for minting.',
