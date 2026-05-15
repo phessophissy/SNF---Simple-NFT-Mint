@@ -6,7 +6,15 @@ import { STACKS_MAINNET, STACKS_TESTNET } from '@stacks/network';
 import { CONFIG } from './config/app-config.js';
 import { ACTIVITY_KEY, MOTION_KEY, PREFERENCES_KEY, THEME_KEY } from './config/storage-keys.js';
 import { state } from './state/app-state.js';
-import { elements } from './ui/elements.js';
+import { elements, resolveElements } from './ui/elements.js';
+import { withWalletContractOptions } from './wallet/contract-call.js';
+import {
+  clearWalletConnectTimeout,
+  closeStacksWalletConnection,
+  createWalletConnectTimeout,
+  getConnectedStacksAddress,
+  openStacksWalletConnection,
+} from './wallet/stacks-wallet.js';
 
 const appConfig = new AppConfig(['store_write', 'publish_data']);
 const userSession = new UserSession({ appConfig });
