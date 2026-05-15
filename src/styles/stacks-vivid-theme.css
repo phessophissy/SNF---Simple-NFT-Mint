@@ -451,6 +451,15 @@ h1 {
   gap: 14px;
 }
 
+.wallet-action-btn {
+  width: 100%;
+  justify-self: stretch;
+}
+
+.wallet-action-btn:not(:disabled) {
+  cursor: pointer;
+}
+
 .wallet-link-row {
   display: flex;
   gap: 8px;
