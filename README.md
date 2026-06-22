@@ -41,10 +41,18 @@ npm install
 ### 2. Run Development Server
 
 ```bash
+# start the dev server (alias)npm start
+# or the explicit dev script
 npm run dev
 ```
 
 Visit http://localhost:3000
+
+### 3. Run tests
+
+```bash
+npm test
+```
 
 ## Contributor Docs
 
