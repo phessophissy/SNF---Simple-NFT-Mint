@@ -5,9 +5,11 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
+    "start": "vite",
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
+    "test": "vitest",
     "mint": "node mint-script.js",
     "mint:multi": "node multi-wallet-mint.js",
     "mint:multi:dry": "node multi-wallet-mint.js --dry-run",
@@ -19,7 +21,7 @@
     "stacks",
     "blockchain"
   ],
-  "author": "",
+  "author": "phessophissy",
   "license": "ISC",
   "dependencies": {
     "@reown/appkit": "^1.8.15",
@@ -30,5 +32,8 @@
     "@stacks/wallet-sdk": "^7.2.0",
     "dotenv": "^17.2.3",
     "vite": "^7.3.0"
+  },
+  "devDependencies": {
+    "vitest": "^1.0.0"
   }
 }
