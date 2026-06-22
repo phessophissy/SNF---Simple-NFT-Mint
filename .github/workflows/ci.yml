@@ -25,5 +25,5 @@ jobs:
       - name: Build
         run: npm run build
 
-      - name: Test (smoke)
-        run: npm run test:smoke
+      - name: Test (all)
+        run: npm test
