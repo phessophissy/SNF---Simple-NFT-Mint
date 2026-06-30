@@ -26,10 +26,16 @@ npm-debug.log*
 
 # Private keys and wallets (NEVER commit these)
 wallets.json
+wallets-funded.json
+wallets-*.json
+successful-wallets-*.json
+generated-wallets.json
 *.key
 *.pem
 private-key*
 mnemonic*
+*private*keys*
+*.wallets.json
 
 # Deployment scripts with secrets
 deploy-contract.js
@@ -37,6 +43,12 @@ mint-script.js
 .vercel
 multi-wallet-mint.js
 multi-wallet-marketplace.js
+
+# Wallet/funding tooling (reads secrets from .env)
+fund-wallet-batch.js
+filter-wallets.js
+filter-wallets.cjs
+funding-report-README.txt
 
 # Marketplace scripts (contain wallet logic)
 bulk-mint.js
@@ -48,18 +60,17 @@ deploy-marketplace.js
 transfer-results-*.json
 multi-wallet-marketplace-report-*.json
 mint-list
-*.wallets.json
-*private*keys*
 
 # Generated run artifacts
 multi-wallet-mint-report-*.json
 mint-100-report-*.json
 funding-report-*.json
 failed-listing-wallets-*.json
-generated-wallets.json
 multi-wallet-mint-*.log
 multi-wallet-marketplace-*.log
 mint-*.log
 
-# Local PR batch metadata
+# Local PR batch metadata and scripts
 .pr-batch/
+scripts/generate-snf-prs.sh
+scripts/merge-prs.sh
