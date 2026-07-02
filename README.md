@@ -22,17 +22,10 @@ SNF---Simple-NFT-Mint/
 │   └── nft-marketplace-v2.clar     # Marketplace contract used for listings and sales
 ├── src/
 │   ├── main.js                     # Frontend logic, wallet flows, and live data reads
-│   ├── config/                     # App configuration and storage keys
-│   ├── state/                      # Application state container
-│   ├── ui/                         # DOM element bindings
-│   ├── wallet/                     # Stacks wallet connection and contract-call helpers
-│   └── styles/                     # Theme and component styles
-├── scripts/
-│   └── audit-sensitive-files.mjs   # Pre-PR sensitive file audit
-├── test/
-│   ├── smoke.test.js               # Project smoke tests
-│   └── wallet.test.js              # Wallet helper tests
+│   └── styles/stacks-vivid-theme.css
 ├── index.html                      # Studio shell and dashboard structure
+├── multi-wallet-mint.js            # Bulk minting helper for generated wallets
+├── multi-wallet-marketplace.js     # Bulk marketplace helper
 ├── vite.config.js
 └── package.json
 ```
@@ -48,10 +41,19 @@ npm install
 ### 2. Run Development Server
 
 ```bash
+# start the dev server (alias)
+npm start
+# or the explicit dev script
 npm run dev
 ```
 
 Visit http://localhost:3000
+
+### 3. Run tests
+
+```bash
+npm test
+```
 
 ## Contributor Docs
 
