@@ -12,6 +12,7 @@
     "test": "vitest",
     "test:watch": "vitest",
     "test:smoke": "vitest run test/smoke.test.js test/wallet.test.js",
+    "audit:sensitive": "node scripts/audit-sensitive-files.mjs",
     "check": "npm run build && npm run test:smoke"
   },
   "keywords": [
